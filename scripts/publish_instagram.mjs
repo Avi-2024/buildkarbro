@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 const IG_USER_ID = "17841424749134562";
-const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
+const ACCESS_TOKEN = (process.env.META_ACCESS_TOKEN || "").trim();
 const GRAPH_VERSION = process.env.META_GRAPH_VERSION || "v23.0";
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
 
