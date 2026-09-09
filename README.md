@@ -6,7 +6,7 @@ Free GitHub Actions queue for Instagram image posts and carousels through the In
 
 In Settings -> Secrets and variables -> Actions, add:
 
-- IG_USER_ID: 17841424749134562
+- IG_USER_ID: 1784XX24749XX4562
 - META_ACCESS_TOKEN: fresh Meta System User token (never commit or paste it into chat)
 
 ## Queue
