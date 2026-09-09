@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
 
-const IG_USER_ID = process.env.IG_USER_ID;
+const IG_USER_ID = "17841424749134562";
 const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 const GRAPH_VERSION = process.env.META_GRAPH_VERSION || "v23.0";
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
 
-if (!IG_USER_ID || !ACCESS_TOKEN) throw new Error("Missing IG_USER_ID or META_ACCESS_TOKEN secret.");
+if (!ACCESS_TOKEN) throw new Error("Missing META_ACCESS_TOKEN repository secret.");
 
 async function graph(path, params = {}) {
   const url = new URL("https://graph.facebook.com/" + GRAPH_VERSION + "/" + path);
