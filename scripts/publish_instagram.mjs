@@ -9,9 +9,17 @@ if (!ACCESS_TOKEN) throw new Error("Missing META_ACCESS_TOKEN repository secret.
 
 async function graph(path, params = {}, method = "POST") {
   const url = new URL("https://graph.facebook.com/" + GRAPH_VERSION + "/" + path);
-  const body = new URLSearchParams({ access_token: ACCESS_TOKEN });
-  for (const [key, value] of Object.entries(params)) body.set(key, Array.isArray(value) ? value.join(",") : String(value));
-  const response = await fetch(url, { method, headers: {"content-type":"application/x-www-form-urlencoded"}, body });
+  const entries = Object.entries({access_token: ACCESS_TOKEN, ...params});
+  if (method === "GET") {
+    for (const [key, value] of entries) url.searchParams.set(key, Array.isArray(value) ? value.join(",") : String(value));
+  }
+  const options = {method, headers: {"content-type":"application/x-www-form-urlencoded"}};
+  if (method !== "GET") {
+    const body = new URLSearchParams();
+    for (const [key, value] of entries) body.set(key, Array.isArray(value) ? value.join(",") : String(value));
+    options.body = body;
+  }
+  const response = await fetch(url, options);
   const data = await response.json();
   if (!response.ok || data.error) throw new Error(data.error?.message || ("Graph API request failed (" + response.status + ")"));
   return data;
