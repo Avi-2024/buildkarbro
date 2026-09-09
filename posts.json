@@ -1,8 +1,15 @@
 [
   {
-    "id": "first-post-001",
+    "id": "first-carousel-001",
     "publish_at": "2026-09-09T00:00:00+05:30",
-    "image_urls": ["https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/first-post.png"],
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/first-post.png",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/carousel-2.png",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/carousel-3.png",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/carousel-4.png",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/carousel-5.png",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/carousel-6.png"
+    ],
     "caption": "17 ideas. 0 finished. 😭\n\nAI tool, freelancing, business, coding, content… sab start karna easy lagta hai. Finish karna hi real game hai.\n\nEk idea choose karo. 7 din do. Complete karo.\n\nIsse us friend ko bhejo jiske Notes app me 100 startup ideas hain 😂\n\nFollow @buildkarbro for relatable AI, business and creator-life content.\n\n#buildinpublic #aitools #freelancerlife #entrepreneurlife #hindicontent #creatorlife #productivity #startuplife"
   }
 ]
