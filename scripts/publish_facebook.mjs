@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 
-const PAGE_ID = process.env.FACEBOOK_PAGE_ID || "61594437443124";
+const PAGE_ID = process.env.FACEBOOK_PAGE_ID || "1392360773951187";
 const RAW_ACCESS_TOKEN = (process.env.FACEBOOK_PAGE_ACCESS_TOKEN || "").trim();
 const GRAPH_VERSION = process.env.META_GRAPH_VERSION || "v23.0";
 const GRAPH_HOST = "https://graph.facebook.com/";
@@ -214,6 +214,18 @@ try {
             "Use the actual Page access token, not only the System User/User token.",
             "In Graph API Explorer or API, run: GET /" + PAGE_ID + "?fields=id,name,access_token",
             "Copy the returned access_token from the Page object into GitHub secret FACEBOOK_PAGE_ACCESS_TOKEN.",
+            `Original Facebook error: ${error.message}`,
+          ].join("\n")
+        );
+      }
+
+      if (String(error.message).includes("pages_manage_posts")) {
+        throw new Error(
+          [
+            "Facebook publishing permission is missing from this Meta app/token.",
+            "Required permission: pages_manage_posts.",
+            "Open Meta Developers -> Build Kar Bro Auto Publisher -> Use cases / Permissions and Features, then add/request pages_manage_posts.",
+            "After enabling it, generate a fresh System User/Page token and update GitHub secret FACEBOOK_PAGE_ACCESS_TOKEN.",
             `Original Facebook error: ${error.message}`,
           ].join("\n")
         );
