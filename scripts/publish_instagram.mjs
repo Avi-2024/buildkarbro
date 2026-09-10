@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 
 const IG_USER_ID = "17841424749134562";
+const EXPECTED_USERNAME = "buildkarbro";
 const ACCESS_TOKEN = (process.env.META_ACCESS_TOKEN || "").trim();
 const GRAPH_VERSION = process.env.META_GRAPH_VERSION || "v23.0";
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
@@ -88,6 +89,14 @@ async function waitForContainer(containerId, label) {
     await sleep(60_000);
   }
 }
+
+const account = await graphGet(IG_USER_ID, { fields: "id,username" });
+const actualUsername = String(account.username || "").toLowerCase();
+if (!actualUsername) throw new Error(`Instagram account ${IG_USER_ID} did not return a username.`);
+if (actualUsername !== EXPECTED_USERNAME.toLowerCase()) {
+  throw new Error(`Safety stop: Instagram ID ${IG_USER_ID} resolves to @${account.username}, expected @${EXPECTED_USERNAME}.`);
+}
+console.log(`Instagram publishing account verified: @${account.username} (${account.id}).`);
 
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
 if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array.");
