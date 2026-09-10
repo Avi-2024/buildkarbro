@@ -1,18 +1,26 @@
 import fs from "node:fs/promises";
 
 const PAGE_ID = process.env.FACEBOOK_PAGE_ID || "61594437443124";
-const ACCESS_TOKEN = (process.env.FACEBOOK_PAGE_ACCESS_TOKEN || "").trim();
+const RAW_ACCESS_TOKEN = (process.env.FACEBOOK_PAGE_ACCESS_TOKEN || "").trim();
 const GRAPH_VERSION = process.env.META_GRAPH_VERSION || "v23.0";
 const GRAPH_HOST = "https://graph.facebook.com/";
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
 
-if (!ACCESS_TOKEN) {
+if (!RAW_ACCESS_TOKEN) {
   console.log("FACEBOOK_PAGE_ACCESS_TOKEN secret is not configured. Skipping Facebook publish.");
   process.exit(0);
 }
 
-if (/^Bearer\s+/i.test(ACCESS_TOKEN)) {
-  throw new Error("FACEBOOK_PAGE_ACCESS_TOKEN must contain only the raw Page access token, without a Bearer prefix.");
+if (/^Bearer\s+/i.test(RAW_ACCESS_TOKEN)) {
+  throw new Error("FACEBOOK_PAGE_ACCESS_TOKEN must contain only the raw access token, without a Bearer prefix.");
+}
+
+if (/\s/.test(RAW_ACCESS_TOKEN)) {
+  throw new Error("FACEBOOK_PAGE_ACCESS_TOKEN contains whitespace. Save only the raw token in the GitHub secret.");
+}
+
+if (/^[\"'`]|[\"'`]$/.test(RAW_ACCESS_TOKEN)) {
+  throw new Error("FACEBOOK_PAGE_ACCESS_TOKEN appears to be quoted. Save only the raw token in the GitHub secret.");
 }
 
 function graphError(response, data) {
@@ -27,9 +35,9 @@ function graphError(response, data) {
   return `${error.message || `Facebook Graph API request failed (${response.status})`}${details ? ` (${details})` : ""}`;
 }
 
-async function graphGet(path, params = {}) {
+async function graphGet(accessToken, path, params = {}) {
   const url = new URL(`${GRAPH_HOST}${GRAPH_VERSION}/${path}`);
-  url.searchParams.set("access_token", ACCESS_TOKEN);
+  url.searchParams.set("access_token", accessToken);
 
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null) url.searchParams.set(key, String(value));
@@ -42,9 +50,9 @@ async function graphGet(path, params = {}) {
   return data;
 }
 
-async function graphPost(path, params = {}) {
+async function graphPost(accessToken, path, params = {}) {
   const url = new URL(`${GRAPH_HOST}${GRAPH_VERSION}/${path}`);
-  const body = new URLSearchParams({ access_token: ACCESS_TOKEN });
+  const body = new URLSearchParams({ access_token: accessToken });
 
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null) body.set(key, String(value));
@@ -63,6 +71,66 @@ async function graphPost(path, params = {}) {
 
 async function savePosts(posts) {
   await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 2) + "\n");
+}
+
+async function resolvePageContext() {
+  let directError = null;
+  let accountsError = null;
+
+  try {
+    const page = await graphGet(RAW_ACCESS_TOKEN, PAGE_ID, { fields: "id,name,link" });
+    console.log(`Facebook Page verified directly: ${page.name || "unknown"} (${page.id}).`);
+    return { pageAccessToken: RAW_ACCESS_TOKEN, page };
+  } catch (error) {
+    directError = error;
+    console.warn(`Direct Page lookup failed with provided token: ${error.message}`);
+  }
+
+  try {
+    const accounts = await graphGet(RAW_ACCESS_TOKEN, "me/accounts", {
+      fields: "id,name,access_token,tasks,link",
+      limit: 100,
+    });
+
+    const page = (accounts.data || []).find((item) => String(item.id) === String(PAGE_ID));
+
+    if (!page) {
+      throw new Error(
+        `Page ${PAGE_ID} was not returned by /me/accounts. Assign the Build Kar Bro Page asset to this token's user/system user with CREATE_CONTENT or Full Control, then generate a fresh token.`
+      );
+    }
+
+    if (!page.access_token) {
+      throw new Error(
+        `Page ${PAGE_ID} was returned by /me/accounts, but no Page access_token was returned. Regenerate the token with pages_show_list, pages_read_engagement, and pages_manage_posts.`
+      );
+    }
+
+    console.log(`Resolved Facebook Page token from /me/accounts: ${page.name || "unknown"} (${page.id}).`);
+    if (Array.isArray(page.tasks)) console.log(`Page tasks: ${page.tasks.join(", ") || "none"}.`);
+
+    return {
+      pageAccessToken: page.access_token,
+      page: {
+        id: page.id,
+        name: page.name || null,
+        link: page.link || null,
+      },
+    };
+  } catch (error) {
+    accountsError = error;
+  }
+
+  throw new Error(
+    [
+      "Facebook Page access failed.",
+      `Target Page ID: ${PAGE_ID}.`,
+      "Use a real Page access token, or a system/user token that can access the Page and return its Page token via /me/accounts.",
+      "For a System User token: Business Settings -> Users -> System Users -> select user -> Add Assets -> Pages -> Build Kar Bro -> Full Control/CREATE_CONTENT, then Generate New Token with pages_manage_posts, pages_read_engagement, pages_show_list, business_management.",
+      `Direct Page error: ${directError?.message || "not checked"}`,
+      `me/accounts error: ${accountsError?.message || "not checked"}`,
+    ].join("\n")
+  );
 }
 
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
@@ -84,25 +152,25 @@ if (!target) {
   process.exit(0);
 }
 
-if (target.facebook_status === "publishing") {
-  console.log(`Facebook publish was already in progress for ${target.id}; retrying safely.`);
-}
-
-const page = await graphGet(PAGE_ID, { fields: "id,name,link" });
-console.log(`Facebook Page verified: ${page.name || "unknown"} (${page.id}).`);
-console.log(`Publishing Facebook Page post for ${target.id} with ${target.image_urls.length} image(s).`);
-
-target.facebook_status = "publishing";
-target.facebook_started_at = new Date().toISOString();
-delete target.facebook_error;
-delete target.facebook_failed_at;
-await savePosts(posts);
-
 try {
+  if (target.facebook_status === "publishing") {
+    console.log(`Facebook publish was already in progress for ${target.id}; retrying safely.`);
+  }
+
+  const { pageAccessToken, page } = await resolvePageContext();
+
+  console.log(`Publishing Facebook Page post for ${target.id} with ${target.image_urls.length} image(s).`);
+
+  target.facebook_status = "publishing";
+  target.facebook_started_at = new Date().toISOString();
+  delete target.facebook_error;
+  delete target.facebook_failed_at;
+  await savePosts(posts);
+
   const photoIds = [];
 
   for (const [index, imageUrl] of target.image_urls.entries()) {
-    const uploaded = await graphPost(`${PAGE_ID}/photos`, {
+    const uploaded = await graphPost(pageAccessToken, `${PAGE_ID}/photos`, {
       url: imageUrl,
       published: "false",
     });
@@ -121,12 +189,12 @@ try {
     feedParams[`attached_media[${index}]`] = JSON.stringify({ media_fbid: photoId });
   }
 
-  const feed = await graphPost(`${PAGE_ID}/feed`, feedParams);
+  const feed = await graphPost(pageAccessToken, `${PAGE_ID}/feed`, feedParams);
   if (!feed.id) throw new Error("Facebook did not return a post id after publishing the feed post.");
 
   let permalink = null;
   try {
-    const details = await graphGet(feed.id, { fields: "id,permalink_url,created_time" });
+    const details = await graphGet(pageAccessToken, feed.id, { fields: "id,permalink_url,created_time" });
     permalink = details.permalink_url || null;
   } catch (error) {
     console.warn(`Facebook post published, but permalink lookup failed: ${error.message}`);
