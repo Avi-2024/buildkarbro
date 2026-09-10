@@ -19,7 +19,7 @@
     "media_type": "CAROUSEL_ALBUM",
     "media_product_type": "FEED",
     "facebook_status": "failed",
-    "facebook_error": "(#200) The permission(s) pages_manage_posts are not available. It could because either they are deprecated or need to be approved by App Review. (type=OAuthException, code=200, fbtrace_id=A8VEgjU8EZBcMF0TKztgVCx)",
-    "facebook_failed_at": "2026-09-10T15:49:56.509Z"
+    "facebook_error": "Facebook Page access failed.\nTarget Page ID: 1392360773951187.\nUse a real Page access token, or a system/user token that can access the Page and return its Page token via /me/accounts or /{page-id}?fields=access_token.\nFor a System User token: Business Settings -> Users -> System Users -> select user -> Add Assets -> Pages -> Build Kar Bro -> Full Control/CREATE_CONTENT, then Generate New Token with pages_manage_posts, pages_read_engagement, pages_show_list, business_management.\nDirect Page error: Error validating access token: Session has expired on Thursday, 10-Sep-26 10:00:00 PDT. The current time is Thursday, 10-Sep-26 10:56:00 PDT. (type=OAuthException, code=190, subcode=463, fbtrace_id=AteA2jq0LRkeuqRtnVOtEJ3)\nme/accounts error: Error validating access token: Session has expired on Thursday, 10-Sep-26 10:00:00 PDT. The current time is Thursday, 10-Sep-26 10:56:00 PDT. (type=OAuthException, code=190, subcode=463, fbtrace_id=AwKhTkLTtWT3kMJM3V1xOzz)",
+    "facebook_failed_at": "2026-09-10T17:56:00.476Z"
   }
 ]
