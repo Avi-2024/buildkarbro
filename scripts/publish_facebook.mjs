@@ -73,14 +73,36 @@ async function savePosts(posts) {
   await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 2) + "\n");
 }
 
+function publicPage(page) {
+  return {
+    id: page.id,
+    name: page.name || null,
+    link: page.link || null,
+  };
+}
+
 async function resolvePageContext() {
   let directError = null;
   let accountsError = null;
+  let directPage = null;
 
+  // Important: a System User/User token can sometimes read the Page but still cannot
+  // create unpublished photos. For multi-photo posts we must publish as the Page,
+  // so first try to exchange/resolve an embedded Page access token.
   try {
-    const page = await graphGet(RAW_ACCESS_TOKEN, PAGE_ID, { fields: "id,name,link" });
+    const page = await graphGet(RAW_ACCESS_TOKEN, PAGE_ID, {
+      fields: "id,name,link,access_token",
+    });
+
+    directPage = publicPage(page);
     console.log(`Facebook Page verified directly: ${page.name || "unknown"} (${page.id}).`);
-    return { pageAccessToken: RAW_ACCESS_TOKEN, page };
+
+    if (page.access_token) {
+      console.log("Resolved Page access token from direct Page lookup.");
+      return { pageAccessToken: page.access_token, page: directPage, tokenSource: "page_lookup" };
+    }
+
+    console.log("Direct Page lookup did not return an embedded Page token; checking /me/accounts next.");
   } catch (error) {
     directError = error;
     console.warn(`Direct Page lookup failed with provided token: ${error.message}`);
@@ -111,21 +133,27 @@ async function resolvePageContext() {
 
     return {
       pageAccessToken: page.access_token,
-      page: {
-        id: page.id,
-        name: page.name || null,
-        link: page.link || null,
-      },
+      page: publicPage(page),
+      tokenSource: "me_accounts",
     };
   } catch (error) {
     accountsError = error;
+  }
+
+  // Last fallback: if the secret itself is already a real Page access token,
+  // direct lookup succeeds but access_token may not be returned. Use it and let
+  // the write call prove it. If it is only a System User token, Facebook will
+  // return #200 with a clearer custom message below.
+  if (directPage) {
+    console.log("Using provided token as the Page token because the Page lookup succeeded.");
+    return { pageAccessToken: RAW_ACCESS_TOKEN, page: directPage, tokenSource: "provided_token" };
   }
 
   throw new Error(
     [
       "Facebook Page access failed.",
       `Target Page ID: ${PAGE_ID}.`,
-      "Use a real Page access token, or a system/user token that can access the Page and return its Page token via /me/accounts.",
+      "Use a real Page access token, or a system/user token that can access the Page and return its Page token via /me/accounts or /{page-id}?fields=access_token.",
       "For a System User token: Business Settings -> Users -> System Users -> select user -> Add Assets -> Pages -> Build Kar Bro -> Full Control/CREATE_CONTENT, then Generate New Token with pages_manage_posts, pages_read_engagement, pages_show_list, business_management.",
       `Direct Page error: ${directError?.message || "not checked"}`,
       `me/accounts error: ${accountsError?.message || "not checked"}`,
@@ -157,9 +185,10 @@ try {
     console.log(`Facebook publish was already in progress for ${target.id}; retrying safely.`);
   }
 
-  const { pageAccessToken, page } = await resolvePageContext();
+  const { pageAccessToken, page, tokenSource } = await resolvePageContext();
 
   console.log(`Publishing Facebook Page post for ${target.id} with ${target.image_urls.length} image(s).`);
+  console.log(`Facebook token source: ${tokenSource}.`);
 
   target.facebook_status = "publishing";
   target.facebook_started_at = new Date().toISOString();
@@ -170,10 +199,28 @@ try {
   const photoIds = [];
 
   for (const [index, imageUrl] of target.image_urls.entries()) {
-    const uploaded = await graphPost(pageAccessToken, `${PAGE_ID}/photos`, {
-      url: imageUrl,
-      published: "false",
-    });
+    let uploaded;
+
+    try {
+      uploaded = await graphPost(pageAccessToken, `${PAGE_ID}/photos`, {
+        url: imageUrl,
+        published: "false",
+      });
+    } catch (error) {
+      if (String(error.message).includes("Unpublished posts must be posted to a page as the page itself")) {
+        throw new Error(
+          [
+            "The token can read the Page, but it is not acting as the Page for unpublished photo uploads.",
+            "Use the actual Page access token, not only the System User/User token.",
+            "In Graph API Explorer or API, run: GET /" + PAGE_ID + "?fields=id,name,access_token",
+            "Copy the returned access_token from the Page object into GitHub secret FACEBOOK_PAGE_ACCESS_TOKEN.",
+            `Original Facebook error: ${error.message}`,
+          ].join("\n")
+        );
+      }
+
+      throw error;
+    }
 
     if (!uploaded.id) throw new Error(`Facebook did not return an id for uploaded photo ${index + 1}.`);
     photoIds.push(uploaded.id);
@@ -207,6 +254,7 @@ try {
   target.facebook_photo_ids = photoIds;
   target.facebook_posted_at = new Date().toISOString();
   target.facebook_permalink = permalink;
+  target.facebook_token_source = tokenSource;
   delete target.facebook_started_at;
   delete target.facebook_error;
   delete target.facebook_failed_at;
