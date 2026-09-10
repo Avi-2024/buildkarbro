@@ -7,6 +7,7 @@
   },
   "scripts": {
     "generate:daily-free": "node scripts/generate_daily_free_post.mjs",
+    "generate:social-day": "node scripts/generate_social_day.mjs",
     "preflight:instagram": "node scripts/preflight_instagram.mjs",
     "publish:instagram": "node scripts/publish_instagram.mjs",
     "verify:instagram": "node scripts/verify_instagram_publish.mjs",
