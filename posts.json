@@ -19,7 +19,7 @@
     "media_type": "CAROUSEL_ALBUM",
     "media_product_type": "FEED",
     "facebook_status": "failed",
-    "facebook_error": "(#200) The permission(s) pages_manage_posts are not available. It could because either they are deprecated or need to be approved by App Review. (type=OAuthException, code=200, fbtrace_id=ALbcwW8klg77ymMIxwk7EGj)",
-    "facebook_failed_at": "2026-09-10T15:42:55.730Z"
+    "facebook_error": "(#200) The permission(s) pages_manage_posts are not available. It could because either they are deprecated or need to be approved by App Review. (type=OAuthException, code=200, fbtrace_id=A8VEgjU8EZBcMF0TKztgVCx)",
+    "facebook_failed_at": "2026-09-10T15:49:56.509Z"
   }
 ]
