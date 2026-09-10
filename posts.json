@@ -19,7 +19,7 @@
     "media_type": "CAROUSEL_ALBUM",
     "media_product_type": "FEED",
     "facebook_status": "failed",
-    "facebook_error": "(#200) Unpublished posts must be posted to a page as the page itself. (type=OAuthException, code=200, fbtrace_id=AFur8tuSdc5ESLL1DTjV-GP)",
-    "facebook_failed_at": "2026-09-10T15:32:24.297Z"
+    "facebook_error": "(#200) The permission(s) pages_manage_posts are not available. It could because either they are deprecated or need to be approved by App Review. (type=OAuthException, code=200, fbtrace_id=ARXOYjcmUaCmF1bSdvjvT4H)",
+    "facebook_failed_at": "2026-09-10T15:38:16.048Z"
   }
 ]
