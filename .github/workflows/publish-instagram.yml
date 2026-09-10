@@ -8,18 +8,66 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: instagram-publisher
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout queue
         uses: actions/checkout@v6
+
+      - name: Prepare Instagram JPEG media
+        run: bash scripts/prepare_instagram_media.sh
+
+      - name: Save prepared media
+        run: |
+          set -euo pipefail
+          git add posts.json assets/
+          if git diff --cached --quiet; then
+            echo "No media conversion changes to save."
+            exit 0
+          fi
+          git config user.name "instagram-publisher[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: prepare Instagram JPEG media"
+          git push
+          echo "JPEG assets are now public on the main branch."
+          sleep 5
+
+      - name: Verify due media URLs
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE' > /tmp/instagram-media-urls.txt
+          import fs from "node:fs";
+          const posts = JSON.parse(fs.readFileSync("posts.json", "utf8"));
+          const due = posts.find((post) => !post.published_at && post.publish_at && new Date(post.publish_at).getTime() <= Date.now());
+          if (due?.image_urls) {
+            for (const url of due.image_urls) console.log(url);
+          }
+          NODE
+
+          while IFS= read -r url; do
+            [[ -n "$url" ]] || continue
+            echo "Checking JPEG media URL..."
+            headers="$(curl --fail --location --silent --show-error --retry 5 --retry-delay 2 --head "$url")"
+            content_type="$(printf '%s\n' "$headers" | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^content-type:/ {print $2}' | tail -1)"
+            if [[ "$content_type" != image/jpeg* ]]; then
+              echo "Expected image/jpeg but received: ${content_type:-unknown}" >&2
+              exit 1
+            fi
+          done < /tmp/instagram-media-urls.txt
+
       - name: Publish due post
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
         run: node scripts/publish_instagram.mjs
+
       - name: Save publish status
         run: |
+          set -euo pipefail
           if git diff --quiet; then exit 0; fi
           git config user.name "instagram-publisher[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
