@@ -92,10 +92,12 @@ async function waitForContainer(containerId, label) {
 
 const account = await graphGet(IG_USER_ID, { fields: "id,username" });
 const actualUsername = String(account.username || "").toLowerCase();
+
 if (!actualUsername) throw new Error(`Instagram account ${IG_USER_ID} did not return a username.`);
 if (actualUsername !== EXPECTED_USERNAME.toLowerCase()) {
   throw new Error(`Safety stop: Instagram ID ${IG_USER_ID} resolves to @${account.username}, expected @${EXPECTED_USERNAME}.`);
 }
+
 console.log(`Instagram publishing account verified: @${account.username} (${account.id}).`);
 
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
@@ -113,6 +115,16 @@ if (!due) {
 if (!Array.isArray(due.image_urls) || due.image_urls.length < 1 || due.image_urls.length > 10) {
   throw new Error("Due post must contain between 1 and 10 image_urls.");
 }
+
+// Clear stale verification/publish fields before this fresh publish attempt.
+due.instagram_media_id = null;
+due.instagram_permalink = null;
+due.instagram_username = null;
+due.verified_at = null;
+due.media_type = null;
+due.media_product_type = null;
+delete due.verification_error;
+delete due.verification_failed_at;
 
 console.log(`Publishing ${due.id} with ${due.image_urls.length} image(s).`);
 
@@ -150,6 +162,8 @@ if (due.image_urls.length === 1) {
 const published = await graphPost(`${IG_USER_ID}/media_publish`, {
   creation_id: creation.id,
 });
+
+if (!published.id) throw new Error("Instagram media_publish did not return a media id.");
 
 due.published_at = new Date().toISOString();
 due.instagram_media_id = published.id;
