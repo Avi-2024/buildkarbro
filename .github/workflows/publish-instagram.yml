@@ -20,46 +20,21 @@ jobs:
       - name: Checkout queue
         uses: actions/checkout@v6
 
-      - name: Ensure Instagram JPEG assets exist
+      - name: Ensure approved Instagram JPEG assets exist
         run: |
           set -euo pipefail
           missing=0
           for f in first-post carousel-2 carousel-3 carousel-4 carousel-5 carousel-6; do
-            if [[ ! -s "assets/$f.jpg" ]]; then missing=1; fi
+            if [[ ! -s "assets/$f.jpg" ]]; then
+              echo "::error::Missing approved Instagram media: assets/$f.jpg"
+              missing=1
+            fi
           done
-          if [[ "$missing" -eq 0 ]]; then
-            echo "All Instagram JPEG assets already exist."
-            exit 0
+          if [[ "$missing" -ne 0 ]]; then
+            echo "Approved carousel media is missing. Upload the final premium JPEG assets before publishing."
+            exit 1
           fi
-
-          node scripts/generate_carousel_assets.mjs
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq imagemagick
-          mkdir -p assets
-          for src in assets-src/*.svg; do
-            out="assets/$(basename "${src%.svg}").jpg"
-            echo "Rendering $src -> $out"
-            convert -background '#0B1020' -alpha remove -alpha off -resize 1080x1080! -strip -sampling-factor 4:2:0 -quality 90 "$src" "$out"
-          done
-
-          git config user.name "instagram-publisher[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/*.jpg assets-src/*.svg
-          git commit -m "chore: generate Instagram carousel media"
-          git push
-
-          echo "Waiting for raw.githubusercontent.com to serve the new JPEGs..."
-          for attempt in {1..10}; do
-            ok=1
-            while IFS= read -r url; do
-              [[ -n "$url" ]] || continue
-              code="$(curl -L -s -o /dev/null -w '%{http_code}' "$url")"
-              if [[ "$code" != "200" ]]; then ok=0; break; fi
-            done < <(node -e 'const p=require("./posts.json").find(x=>!x.published_at); for(const u of (p?.image_urls||[])) console.log(u)')
-            if [[ "$ok" -eq 1 ]]; then echo "All JPEG URLs are public."; break; fi
-            if [[ "$attempt" -eq 10 ]]; then echo "JPEG URLs did not become public in time." >&2; exit 1; fi
-            sleep 6
-          done
+          echo "All approved Instagram JPEG assets exist."
 
       - name: Preflight due post
         run: node scripts/preflight_instagram.mjs
