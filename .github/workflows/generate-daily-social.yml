@@ -35,7 +35,7 @@ jobs:
 
       - name: Generate fixed-calendar carousel and queue post
         env:
-          TARGET_DATE: ${{ inputs.target_date }}
+          TARGET_DATE: ${{ github.event.inputs.target_date || '' }}
           TIMEZONE: Asia/Kolkata
           IMAGE_PROVIDER: ${{ secrets.IMAGE_PROVIDER }}
           IMAGE_API_KEY: ${{ secrets.IMAGE_API_KEY }}
