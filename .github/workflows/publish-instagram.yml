@@ -75,7 +75,7 @@ jobs:
 
       - name: Publish verified post to Facebook Page
         env:
-          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || '61594437443124' }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || '1392360773951187' }}
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
         run: node scripts/publish_facebook.mjs
 
