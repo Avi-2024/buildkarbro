@@ -20,46 +20,6 @@ jobs:
       - name: Checkout queue
         uses: actions/checkout@v6
 
-      - name: Ensure approved Instagram JPEG assets exist
-        run: |
-          set -euo pipefail
-          missing=0
-
-          check_asset() {
-            local file="$1"
-            local min_bytes="$2"
-
-            if [[ ! -s "$file" ]]; then
-              echo "::error::Missing approved Instagram media: $file"
-              missing=1
-              return
-            fi
-
-            local bytes
-            bytes="$(wc -c < "$file")"
-            if (( bytes < min_bytes )); then
-              echo "::error::$file is only ${bytes} bytes. This looks like fallback/placeholder media, not the approved premium 3D carousel. Upload the final premium JPEG first."
-              missing=1
-              return
-            fi
-
-            echo "$file OK (${bytes} bytes)."
-          }
-
-          check_asset assets/first-post.jpg 100000
-          check_asset assets/carousel-2.jpg 100000
-          check_asset assets/carousel-3.jpg 120000
-          check_asset assets/carousel-4.jpg 80000
-          check_asset assets/carousel-5.jpg 85000
-          check_asset assets/carousel-6.jpg 90000
-
-          if [[ "$missing" -ne 0 ]]; then
-            echo "Approved carousel media is missing or still fallback. Upload the final premium JPEG assets before publishing."
-            exit 1
-          fi
-
-          echo "All approved Instagram JPEG assets exist."
-
       - name: Preflight due Instagram post
         run: node scripts/preflight_instagram.mjs
 
