@@ -1,0 +1,18 @@
+{
+  "name": "buildkarbro-social-automation",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate:daily-free": "node scripts/generate_daily_free_post.mjs",
+    "preflight:instagram": "node scripts/preflight_instagram.mjs",
+    "publish:instagram": "node scripts/publish_instagram.mjs",
+    "verify:instagram": "node scripts/verify_instagram_publish.mjs",
+    "publish:facebook": "node scripts/publish_facebook.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}
