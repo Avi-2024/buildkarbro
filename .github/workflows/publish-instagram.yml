@@ -1,4 +1,4 @@
-name: Publish Instagram Queue
+name: Publish Social Queue
 
 on:
   schedule:
@@ -9,13 +9,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: instagram-publisher
+  group: social-publisher
   cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     steps:
       - name: Checkout queue
         uses: actions/checkout@v6
@@ -60,28 +60,35 @@ jobs:
 
           echo "All approved Instagram JPEG assets exist."
 
-      - name: Preflight due post
+      - name: Preflight due Instagram post
         run: node scripts/preflight_instagram.mjs
 
-      - name: Publish due post
+      - name: Publish due Instagram post
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
         run: node scripts/publish_instagram.mjs
 
-      - name: Verify published media
+      - name: Verify published Instagram media
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
         run: node scripts/verify_instagram_publish.mjs
 
-      - name: Save publish status
+      - name: Publish verified post to Facebook Page
+        env:
+          FACEBOOK_PAGE_ID: "61594437443124"
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+        run: node scripts/publish_facebook.mjs
+
+      - name: Save social publish status
+        if: always()
         run: |
           set -euo pipefail
           if git diff --quiet; then
             echo "No queue status change to save."
             exit 0
           fi
-          git config user.name "instagram-publisher[bot]"
+          git config user.name "social-publisher[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add posts.json
-          git commit -m "chore: save Instagram publish verification"
+          git commit -m "chore: save social publish status"
           git push
