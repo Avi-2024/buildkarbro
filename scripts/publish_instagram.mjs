@@ -65,31 +65,33 @@ async function graphGet(path, params = {}) {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function waitForContainer(containerId, label) {
-  const timeoutMs = 120_000;
-  const intervalMs = 3_000;
-  const deadline = Date.now() + timeoutMs;
+  const maxChecks = 5;
 
-  while (Date.now() < deadline) {
+  for (let check = 1; check <= maxChecks; check += 1) {
     const status = await graphGet(containerId, { fields: "status_code,status" });
     const code = status.status_code;
 
-    if (code === "FINISHED") {
-      console.log(`${label} container ${containerId} is ready.`);
+    if (code === "FINISHED" || code === "PUBLISHED") {
+      console.log(`${label} container is ready (${code}).`);
       return;
     }
 
     if (code === "ERROR" || code === "EXPIRED") {
-      throw new Error(`${label} container ${containerId} failed: ${status.status || code}`);
+      throw new Error(`${label} container failed: ${status.status || code}`);
     }
 
-    console.log(`${label} container ${containerId} status: ${code || "processing"}`);
-    await sleep(intervalMs);
-  }
+    if (check === maxChecks) {
+      throw new Error(`${label} container was not ready after ${maxChecks} status checks (last status: ${code || "unknown"}).`);
+    }
 
-  throw new Error(`${label} container ${containerId} was not ready within ${timeoutMs / 1000} seconds.`);
+    console.log(`${label} container status: ${code || "processing"}; waiting 60 seconds.`);
+    await sleep(60_000);
+  }
 }
 
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
+if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array.");
+
 const due = posts.find(
   (post) => !post.published_at && post.publish_at && new Date(post.publish_at).getTime() <= Date.now()
 );
@@ -99,9 +101,11 @@ if (!due) {
   process.exit(0);
 }
 
-if (!Array.isArray(due.image_urls) || due.image_urls.length === 0) {
-  throw new Error("Post has no image_urls.");
+if (!Array.isArray(due.image_urls) || due.image_urls.length < 1 || due.image_urls.length > 10) {
+  throw new Error("Due post must contain between 1 and 10 image_urls.");
 }
+
+console.log(`Publishing ${due.id} with ${due.image_urls.length} image(s).`);
 
 let creation;
 
@@ -114,14 +118,17 @@ if (due.image_urls.length === 1) {
 } else {
   const childIds = [];
 
-  for (const [index, imageUrl] of due.image_urls.entries()) {
+  for (const imageUrl of due.image_urls) {
     const child = await graphPost(`${IG_USER_ID}/media`, {
       image_url: imageUrl,
       is_carousel_item: "true",
     });
-    await waitForContainer(child.id, `Carousel item ${index + 1}`);
     childIds.push(child.id);
   }
+
+  await Promise.all(
+    childIds.map((childId, index) => waitForContainer(childId, `Carousel item ${index + 1}`))
+  );
 
   creation = await graphPost(`${IG_USER_ID}/media`, {
     media_type: "CAROUSEL",
