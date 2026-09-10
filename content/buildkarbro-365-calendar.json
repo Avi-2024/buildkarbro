@@ -1,1 +1,27 @@
-<TOO_BIG_PLACEHOLDER>
+{
+  "brand": "Build Kar Bro",
+  "handle": "@buildkarbro",
+  "timezone": "Asia/Kolkata",
+  "startDate": "2026-09-11",
+  "endDate": "2027-09-10",
+  "defaultPublishTime": "09:00",
+  "mode": "locked-year-blueprint",
+  "note": "The detailed 365-day content is generated deterministically by scripts/build_year_content_calendar.mjs and then consumed by scripts/generate_social_day.mjs. This keeps the repo lightweight while locking the full year content system.",
+  "brandRules": {
+    "audience": ["Indian creators", "freelancers", "students", "entrepreneurs", "AI/business learners"],
+    "tone": "Relatable Hinglish, funny, ambitious, practical",
+    "visualSystem": "Premium faceless creator brand: orange hoodie, white minimal studio, blue/orange accents, no text inside AI visual.",
+    "cta": "Save + follow @buildkarbro"
+  },
+  "lockedPillars": [
+    "AI Tools",
+    "AI Workflows",
+    "Freelancing",
+    "Creator Growth",
+    "Student Productivity",
+    "Business Systems",
+    "Money Skills",
+    "Coding / No-Code",
+    "Execution Mindset"
+  ]
+}
