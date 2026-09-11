@@ -73,5 +73,37 @@
     ],
     "facebook_posted_at": "2026-09-11T08:14:19.248Z",
     "facebook_token_source": "page_lookup"
+  },
+  {
+    "id": "day1-generated-carousel-2026-09-12",
+    "publish_at": "2026-09-12T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel6.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel7.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel8.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel9.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/day1-carousel10.jpg"
+    ],
+    "caption": "Most people are using AI the wrong way.\n\nAI ko Google ki tarah use karoge to average result milega. Better output ke liye goal, audience, format aur constraints clear do.\n\nAI se sirf answer mat mango—repeatable systems banao.\n\nComment PROMPT and follow @buildkarbro for practical AI + business growth.\n\n#AI #PromptEngineering #AITools #CreatorGrowth #BuildKarBro #IndiaCreators #Productivity",
+    "content_source": "BuildKarBro Day 1 generated carousel",
+    "calendar_day": 1,
+    "pillar": "AI + Creator Growth",
+    "format": "10-slide Carousel",
+    "ai_visual_used": true,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
