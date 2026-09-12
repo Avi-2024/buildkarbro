@@ -148,5 +148,33 @@
     ],
     "facebook_posted_at": "2026-09-12T10:11:46.435Z",
     "facebook_token_source": "page_lookup"
+  },
+  {
+    "id": "daily-2026-09-13-ai-system-not-money",
+    "publish_at": "2026-09-13T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-13/slide-6.jpg"
+    ],
+    "caption": "AI se paisa nahi, system banta hai.\\n\\nTool collect karna easy hai. Real growth tab hoti hai jab tum ek repeatable workflow banate ho.\\n\\nIs carousel me simple system diya hai:\\n• 1 repeat hone wala task choose karo\\n• Prompt ko template banao\\n• AI draft par apna human touch add karo\\n• Apna proof publicly share karo\\n\\nAaj ek small system start karo.\\n\\nSave this for later aur follow @buildkarbro for practical AI, skills aur creator growth.\\n\\n#buildkarbro #aitools #aiworkflow #productivity #creatorgrowth #freelancerlife #onlineincome #hindicontent #indiancreators #buildinpublic",
+    "content_source": "manual-carousel-2026-09-13",
+    "calendar_day": 3,
+    "pillar": "AI Workflows",
+    "format": "6-slide Carousel",
+    "ai_visual_used": false,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
