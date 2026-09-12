@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 
 const START_DATE = "2026-09-11";
-const DAYS = 365;
+const DAYS = Number(process.env.CALENDAR_DAYS || 3650);
 const TIMEZONE = "Asia/Kolkata";
 const DEFAULT_PUBLISH_TIME = "09:00";
 
@@ -228,7 +228,7 @@ export function buildYearContentCalendar() {
     const date = addDays(START_DATE, i);
     const dayNumber = i + 1;
     const week = `Week ${Math.floor(i / 7) + 1}`;
-    const monthIndex = Math.min(11, Math.floor(i / 31));
+    const monthIndex = Math.floor(i / 31) % monthlyThemes.length;
     const monthlyTheme = monthlyThemes[monthIndex];
     const pillar = pick(pillars, i, Math.floor(i / 13));
     const topics = topicsByPillar[pillar];
