@@ -73,5 +73,33 @@
     ],
     "facebook_posted_at": "2026-09-11T08:14:19.248Z",
     "facebook_token_source": "page_lookup"
+  },
+  {
+    "id": "daily-2026-09-12-turn-one-idea-into-10-content-pieces-using-ai",
+    "publish_at": "2026-09-12T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-12/slide-6.jpg"
+    ],
+    "caption": "Turn one idea into 10 content pieces using AI\n\nReality: People trust proof more than promises.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nTry this for 7 days.\n\n#AIWorkflow #PromptEngineering #ChatGPT #Automation #BuildKarBro #Creators #India",
+    "content_source": "content/buildkarbro-365-calendar.json",
+    "calendar_day": 2,
+    "pillar": "AI Workflows",
+    "format": "Reel Script",
+    "ai_visual_used": false,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
