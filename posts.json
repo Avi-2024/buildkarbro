@@ -114,4 +114,27 @@
     "facebook_posted_at": "2026-09-12T08:04:57.574Z",
     "facebook_token_source": "page_lookup"
   }
+  {
+  "id": "day1-ai-prompt-mastery-001",
+  "publish_at": "2026-09-12T00:00:00+05:30",
+  "image_urls": [
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-1.jpg",
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-2.jpg",
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-3.jpg",
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-4.jpg",
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-5.jpg",
+    "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/bkb-day1-slide-6.jpg"
+  ],
+  "caption": "99% log AI ko galat tarike se use kar rahe hain.\n\nSame tools. Different results.\nDifference sirf prompt aur clarity ka hota hai.\n\nIs carousel me simple framework diya hai:\n• AI ko Google ki tarah mat use karo\n• Context do\n• Prompt framework use karo\n• Answer nahi, system banao\n\nComment \"PROMPT\" for Part 2.\nFollow @buildkarbro for practical AI, creator and business content.\n\n#buildkarbro #aitools #promptengineering #creatorgrowth #freelancerlife #contentcreator #entrepreneurlife #productivity #hindicontent #buildinpublic",
+  "published_at": null,
+  "instagram_media_id": null,
+  "instagram_permalink": null,
+  "instagram_username": null,
+  "verified_at": null,
+  "media_type": null,
+  "media_product_type": null,
+  "facebook_status": null,
+  "facebook_post_id": null,
+  "facebook_permalink": null
+}
 ]
