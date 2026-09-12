@@ -1,0 +1,92 @@
+name: Prepare Upcoming Social Content
+
+on:
+  schedule:
+    - cron: "0 */2 * * *" # Every 2 hours UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upcoming-social-content
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Find next unqueued calendar day
+        id: next_day
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET_DATE="$(node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          import { buildYearContentCalendar } from "./scripts/build_year_content_calendar.mjs";
+
+          const posts = JSON.parse(fs.readFileSync("posts.json", "utf8"));
+          const queuedIds = new Set(posts.map((post) => post.id));
+          const next = buildYearContentCalendar().posts.find((post) => !queuedIds.has(post.queueId));
+
+          if (!next) {
+            process.stdout.write("");
+            process.exit(0);
+          }
+
+          process.stdout.write(next.date);
+          NODE
+          )"
+
+          if [ -z "$TARGET_DATE" ]; then
+            echo "No unqueued calendar day remains."
+            echo "has_next=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Next content date: $TARGET_DATE"
+          echo "target_date=$TARGET_DATE" >> "$GITHUB_OUTPUT"
+          echo "has_next=true" >> "$GITHUB_OUTPUT"
+
+      - name: Generate next carousel only
+        if: steps.next_day.outputs.has_next == 'true'
+        env:
+          TARGET_DATE: ${{ steps.next_day.outputs.target_date }}
+          TIMEZONE: Asia/Kolkata
+          IMAGE_PROVIDER: ${{ secrets.IMAGE_PROVIDER }}
+          IMAGE_API_KEY: ${{ secrets.IMAGE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_IMAGE_MODEL: ${{ secrets.OPENAI_IMAGE_MODEL }}
+          OPENAI_IMAGE_SIZE: ${{ secrets.OPENAI_IMAGE_SIZE }}
+          OPENAI_IMAGE_QUALITY: ${{ secrets.OPENAI_IMAGE_QUALITY }}
+          REQUIRE_AI_IMAGE: ${{ secrets.REQUIRE_AI_IMAGE }}
+        run: node scripts/generate_social_day.mjs
+
+      - name: Commit content to GitHub only
+        if: steps.next_day.outputs.has_next == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No new content generated."
+            exit 0
+          fi
+
+          git config user.name "social-content-generator[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts.json assets/daily
+          git commit -m "chore: prepare upcoming BuildKarBro carousel"
+          git push
