@@ -648,5 +648,33 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null
+  },
+  {
+    "id": "daily-2026-09-29-the-prompt-framework-beginners-should-copy",
+    "publish_at": "2026-09-29T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-6.jpg"
+    ],
+    "caption": "The prompt framework beginners should copy\n\nReality: Small daily output compounds faster than perfect planning.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nFollow @buildkarbro for practical growth.\n\n#AIWorkflow #PromptEngineering #ChatGPT #Automation #BuildKarBro #Creators #India",
+    "content_source": "content/buildkarbro-365-calendar.json",
+    "calendar_day": 19,
+    "pillar": "AI Workflows",
+    "format": "Checklist Carousel",
+    "ai_visual_used": false,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
