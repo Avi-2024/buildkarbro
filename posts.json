@@ -1108,5 +1108,33 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null
+  },
+  {
+    "id": "daily-2026-10-14-why-discipline-beats-motivation-for-online-growth",
+    "publish_at": "2026-10-14T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-6.jpg"
+    ],
+    "caption": "Why discipline beats motivation for online growth\n\nReality: Premium work is mostly clear thinking plus consistent execution.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nSave this + follow @buildkarbro.\n\n#Execution #Focus #BuildInPublic #BuildKarBro #Productivity #CreatorLife",
+    "content_source": "content/buildkarbro-365-calendar.json",
+    "calendar_day": 34,
+    "pillar": "Execution Mindset",
+    "format": "7-slide Carousel",
+    "ai_visual_used": false,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
