@@ -1052,5 +1052,33 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null
+  },
+  {
+    "id": "daily-2026-10-12-digital-product-ideas-beginners-can-sell",
+    "publish_at": "2026-10-12T09:00:00+05:30",
+    "image_urls": [
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-6.jpg"
+    ],
+    "caption": "Digital product ideas beginners can sell\n\nReality: One focused project beats ten half-started ideas.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nTry this for 7 days.\n\n#DigitalProducts #OnlineIncome #CreatorBusiness #BuildKarBro #SideIncome #MoneySkills",
+    "content_source": "content/buildkarbro-365-calendar.json",
+    "calendar_day": 32,
+    "pillar": "Money Skills",
+    "format": "7-slide Carousel",
+    "ai_visual_used": false,
+    "published_at": null,
+    "instagram_media_id": null,
+    "instagram_permalink": null,
+    "instagram_username": null,
+    "verified_at": null,
+    "media_type": null,
+    "media_product_type": null,
+    "facebook_status": null,
+    "facebook_post_id": null,
+    "facebook_permalink": null
   }
 ]
