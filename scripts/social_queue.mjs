@@ -2,6 +2,7 @@
 export function isContentBankPost(post) {
   return Boolean(
     post &&
+    post.manual_approved === true &&
     Array.isArray(post.image_urls) &&
     post.image_urls.length > 0 &&
     post.image_urls.every((url) =>
