@@ -56,7 +56,7 @@ function splitCaption(post, slideCount) {
   const body = blocks.slice(1).join(" ").replace(/#[A-Za-z0-9_]+/g, "").trim();
 
   const sentences = body
-    .split(/(?<=[.!?])\\s+/)
+    .split(/(?<=[.!?])\s+/)
     .map((part) => part.trim())
     .filter(Boolean);
 
