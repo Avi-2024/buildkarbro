@@ -16,7 +16,7 @@ function escapeXml(value = "") {
 }
 
 function wrapWords(text, maxChars = 30, maxLines = 8) {
-  const words = String(text || "").replace(/\\s+/g, " ").trim().split(" ").filter(Boolean);
+  const words = String(text || "").replace(/\s+/g, " ").trim().split(" ").filter(Boolean);
   const lines = [];
   let line = "";
 
@@ -50,8 +50,8 @@ function safeId(value) {
 }
 
 function splitCaption(post, slideCount) {
-  const caption = String(post.caption || "").replace(/\\r/g, "").trim();
-  const blocks = caption.split(/\\n+/).map((part) => part.trim()).filter(Boolean);
+  const caption = String(post.caption || "").replace(/\r/g, "").trim();
+  const blocks = caption.split(/\n+/).map((part) => part.trim()).filter(Boolean);
   const headline = blocks[0] || String(post.id || "Build Kar Bro").replaceAll("-", " ");
   const body = blocks.slice(1).join(" ").replace(/#[A-Za-z0-9_]+/g, "").trim();
 
@@ -83,7 +83,7 @@ async function inspectJpeg(imageUrl) {
   }
 
   if (parsed.protocol !== "https:") return { ok: false, reason: "URL is not HTTPS" };
-  if (!/\\.jpe?g$/i.test(parsed.pathname)) return { ok: false, reason: "URL is not .jpg/.jpeg" };
+  if (!/\.jpe?g$/i.test(parsed.pathname)) return { ok: false, reason: "URL is not .jpg/.jpeg" };
 
   let response;
   try {
@@ -206,5 +206,5 @@ due.image_urls = generated.map((file) =>
 due.media_repaired_at = new Date().toISOString();
 due.media_repair_reason = validation.reason;
 
-await fs.writeFile(POSTS_FILE, `${JSON.stringify(posts, null, 2)}\\n`);
+await fs.writeFile(POSTS_FILE, `${JSON.stringify(posts, null, 2)}\n`);
 console.log(`Recovered ${generated.length} JPEG slide(s) for ${due.id}.`);
