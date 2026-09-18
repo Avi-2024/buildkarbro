@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { selectDuePost } from "./social_queue.mjs";
 
 const IG_USER_ID = "17841424749134562";
 const EXPECTED_USERNAME = "buildkarbro";
@@ -103,9 +104,7 @@ console.log(`Instagram publishing account verified: @${account.username} (${acco
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
 if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array.");
 
-const due = posts.find(
-  (post) => !post.published_at && post.publish_at && new Date(post.publish_at).getTime() <= Date.now()
-);
+const due = selectDuePost(posts);
 
 if (!due) {
   console.log("No due Instagram post.");
