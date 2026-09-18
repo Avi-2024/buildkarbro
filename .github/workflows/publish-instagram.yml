@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - ".github/workflows/publish-instagram.yml"
+      - "scripts/social_queue.mjs"
+      - "scripts/repair_due_media.mjs"
+      - "scripts/preflight_instagram.mjs"
+      - "scripts/publish_instagram.mjs"
   schedule:
     - cron: "30 3 * * *" # 09:00 IST
   workflow_dispatch:
