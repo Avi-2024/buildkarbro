@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/publish-instagram.yml"
       - "scripts/social_queue.mjs"
+      - "scripts/normalize_due_content_bank.mjs"
       - "scripts/preflight_instagram.mjs"
       - "scripts/publish_instagram.mjs"
   schedule:
@@ -27,6 +28,31 @@ jobs:
     steps:
       - name: Checkout queue
         uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Normalize original pushed carousel JPEGs
+        run: node scripts/normalize_due_content_bank.mjs
+
+      - name: Save normalized original assets
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Original pushed carousel assets already valid."
+            exit 0
+          fi
+          git config user.name "social-publisher[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/content-bank
+          git commit -m "chore: normalize pushed carousel JPEGs"
+          git pull --rebase origin main
+          git push
 
       - name: Preflight due Instagram post
         run: node scripts/preflight_instagram.mjs
