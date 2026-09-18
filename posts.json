@@ -295,7 +295,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T14:07:31.807Z",
+    "skip_reason": "superseded_by_daily-2026-09-17-how-to-validate-a-product-before-building-it"
   },
   {
     "id": "daily-2026-09-16-make-your-service-look-professional",
@@ -323,7 +325,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T14:07:31.807Z",
+    "skip_reason": "superseded_by_daily-2026-09-17-how-to-validate-a-product-before-building-it"
   },
   {
     "id": "daily-2026-09-17-how-to-validate-a-product-before-building-it",
@@ -342,18 +346,30 @@
     "pillar": "Money Skills",
     "format": "Story Carousel",
     "ai_visual_used": false,
-    "published_at": null,
-    "instagram_media_id": null,
-    "instagram_permalink": null,
-    "instagram_username": null,
-    "verified_at": null,
-    "media_type": null,
-    "media_product_type": null,
-    "facebook_status": null,
-    "facebook_post_id": null,
-    "facebook_permalink": null,
+    "published_at": "2026-09-18T14:10:00.770Z",
+    "instagram_media_id": "18093461543396450",
+    "instagram_permalink": "https://www.instagram.com/p/DdbnZkRm_RI/",
+    "instagram_username": "buildkarbro",
+    "verified_at": "2026-09-18T14:10:01.068Z",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_post_id": "1392360773951187_122101184475481248",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122101184475481248",
     "media_repaired_at": "2026-09-18T14:05:28.785Z",
-    "media_repair_reason": "image 1: URL is not .jpg/.jpeg"
+    "media_repair_reason": "image 1: URL is not .jpg/.jpeg",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122101184097481248",
+      "122101184157481248",
+      "122101184235481248",
+      "122101184313481248",
+      "122101184367481248",
+      "122101184439481248"
+    ],
+    "facebook_posted_at": "2026-09-18T14:10:13.261Z",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "daily-2026-09-18-build-before-you-overthink-the-stack",
@@ -717,7 +733,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T14:07:31.807Z",
+    "skip_reason": "superseded_by_daily-2026-09-17-how-to-validate-a-product-before-building-it"
   },
   {
     "id": "daily-2026-09-30-how-to-turn-skills-into-service-packages",
