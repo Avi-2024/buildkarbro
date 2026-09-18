@@ -1,6 +1,18 @@
+export function isContentBankPost(post) {
+  return Boolean(
+    post &&
+    Array.isArray(post.image_urls) &&
+    post.image_urls.length > 0 &&
+    post.image_urls.every((url) =>
+      typeof url === "string" && url.includes("/assets/content-bank/")
+    )
+  );
+}
+
 export function isPending(post) {
   return Boolean(
     post &&
+    isContentBankPost(post) &&
     !post.published_at &&
     !post.skipped_at &&
     post.publish_at &&
