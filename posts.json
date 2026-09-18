@@ -1299,7 +1299,7 @@
   },
   {
     "id": "requeue-2026-09-17-how-to-validate-a-product-before-building-it",
-    "publish_at": "2026-09-25T09:00:00+05:30",
+    "publish_at": "2026-09-18T20:28:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/content-bank/2026-09-17/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/content-bank/2026-09-17/slide-2.jpg",
@@ -1324,8 +1324,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "rescheduled_from": "2026-09-18T09:00:00+05:30",
-    "rescheduled_at": "2026-09-18T14:53:00.000Z",
-    "requeue_reason": "original GitHub content-bank carousel was not published; fallback media was used previously"
+    "rescheduled_from": "2026-09-25T09:00:00+05:30",
+    "rescheduled_at": "2026-09-18T14:59:07.000Z",
+    "requeue_reason": "publish original pushed GitHub content-bank carousel today after fallback post was removed"
   }
 ]
