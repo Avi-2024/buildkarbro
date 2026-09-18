@@ -1,3 +1,4 @@
+// This script repairs only the original pushed asset bytes; it never generates fallback artwork.
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
