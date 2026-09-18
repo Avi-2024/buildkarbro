@@ -297,7 +297,10 @@
     "facebook_post_id": null,
     "facebook_permalink": null,
     "rescheduled_from": "2026-09-16T09:00:00+05:30",
-    "rescheduled_at": "2026-09-18T14:53:00.000Z"
+    "rescheduled_at": "2026-09-18T14:53:00.000Z",
+    "skipped_at": "2026-09-18T15:09:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement",
+    "hold_note": "Keep for future use after replacing the original corrupted GitHub carousel files."
   },
   {
     "id": "daily-2026-09-16-make-your-service-look-professional",
