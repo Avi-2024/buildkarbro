@@ -1,8 +1,6 @@
 name: Generate Daily Social Post
 
 on:
-  schedule:
-    - cron: "0 2 * * *" # 07:30 IST
   workflow_dispatch:
     inputs:
       target_date:
