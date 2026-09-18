@@ -1,3 +1,4 @@
+// Publisher queue policy: only manually pushed content-bank carousels are eligible.
 export function isContentBankPost(post) {
   return Boolean(
     post &&
