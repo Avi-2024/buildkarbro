@@ -301,7 +301,7 @@
   },
   {
     "id": "daily-2026-09-16-make-your-service-look-professional",
-    "publish_at": "2026-09-24T09:00:00+05:30",
+    "publish_at": "2026-09-18T20:34:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/content-bank/2026-09-16/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/content-bank/2026-09-16/slide-2.jpg",
@@ -326,8 +326,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "rescheduled_from": "2026-09-17T09:00:00+05:30",
-    "rescheduled_at": "2026-09-18T14:53:00.000Z"
+    "rescheduled_from": "2026-09-24T09:00:00+05:30",
+    "rescheduled_at": "2026-09-18T15:04:00.000Z"
   },
   {
     "id": "daily-2026-09-17-how-to-validate-a-product-before-building-it",
@@ -397,7 +397,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T15:05:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement"
   },
   {
     "id": "daily-2026-09-19-17-ideas-0-finished-the-real-problem",
@@ -425,7 +427,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T15:05:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement"
   },
   {
     "id": "daily-2026-09-20-free-ai-tools-that-replace-boring-daily-tasks",
@@ -453,7 +457,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T15:05:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement"
   },
   {
     "id": "daily-2026-09-21-the-prompt-framework-beginners-should-copy",
@@ -481,7 +487,9 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "skipped_at": "2026-09-18T15:05:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement"
   },
   {
     "id": "daily-2026-09-22-how-to-turn-skills-into-service-packages",
@@ -1326,6 +1334,8 @@
     "facebook_permalink": null,
     "rescheduled_from": "2026-09-25T09:00:00+05:30",
     "rescheduled_at": "2026-09-18T14:59:07.000Z",
-    "requeue_reason": "publish original pushed GitHub content-bank carousel today after fallback post was removed"
+    "requeue_reason": "publish original pushed GitHub content-bank carousel today after fallback post was removed",
+    "skipped_at": "2026-09-18T15:05:00.000Z",
+    "skip_reason": "content_bank_assets_invalid_hold_for_original_replacement"
   }
 ]
