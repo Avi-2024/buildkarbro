@@ -10,8 +10,6 @@ on:
       - "scripts/normalize_due_content_bank.mjs"
       - "scripts/preflight_instagram.mjs"
       - "scripts/publish_instagram.mjs"
-  schedule:
-    - cron: "30 3 * * *" # 09:00 IST
   workflow_dispatch:
 
 permissions:
