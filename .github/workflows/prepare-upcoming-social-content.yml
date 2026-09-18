@@ -1,8 +1,6 @@
 name: Prepare Upcoming Social Content
 
 on:
-  schedule:
-    - cron: "*/10 * * * *" # Every 10 minutes UTC
   workflow_dispatch:
 
 permissions:
