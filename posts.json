@@ -600,19 +600,19 @@
     "id": "daily-2026-09-25-how-to-validate-a-product-before-building-it",
     "publish_at": "2026-10-01T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-6.jpg"
     ],
-    "caption": "How to validate a product before building it\n\nReality: Premium work is mostly clear thinking plus consistent execution.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nBuild it. Post it. Improve it..\n\n#DigitalProducts #OnlineIncome #CreatorBusiness #BuildKarBro #SideIncome #MoneySkills",
+    "caption": "Validate before you build 🔎\n\nFind proof people want the result before spending weeks writing code:\n\n1️⃣ Name the problem and who faces it.\n2️⃣ Talk to real people about their current workflow.\n3️⃣ Test a simple offer with a mockup, landing page or manual service.\n4️⃣ Watch for real signals: sign-ups, bookings or pre-orders.\n\nActions matter more than compliments. Save this framework for your next product idea.\n\nFollow @buildkarbro for practical building and business advice.\n\n#ProductValidation #BuildInPublic #StartupIndia #DigitalProducts #BuildKarBro #EntrepreneurIndia",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 15,
     "pillar": "Money Skills",
     "format": "Meme Carousel",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -623,9 +623,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-09-26-build-before-you-overthink-the-stack",
