@@ -5,6 +5,7 @@ export function isApprovedPost(post) {
     post.manual_approved === true &&
     Array.isArray(post.image_urls) &&
     post.image_urls.length > 0 &&
+    (post.ai_visual_used !== false) &&
     post.image_urls.every((url) =>
       typeof url === "string" && (/\/assets\/(?:content-bank|daily)\/[^?#]+\.jpe?g(?:[?#]|$)/i.test(url))
     )
