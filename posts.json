@@ -758,19 +758,19 @@
     "id": "daily-2026-09-16-daily-operations-checklist-for-small-business",
     "publish_at": "2026-09-27T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-27/slide-6.jpg"
     ],
-    "caption": "Daily operations checklist for small business\n\nReality: People trust proof more than promises.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nShare this with your ambitious friend.\n\n#BusinessSystems #SmallBusiness #Automation #BuildKarBro #EntrepreneurIndia #CRM",
+    "caption": "Daily operations checklist for small business 📋\n\nA simple routine that keeps work moving:\n\n1️⃣ Plan: Pick your top 3 priorities, orders and team responsibilities.\n2️⃣ Track: Check work in progress, stock and approvals.\n3️⃣ Follow up: Update customers, suppliers and pending payments.\n4️⃣ Review: Note sales, unresolved issues and tomorrow’s first task.\n\nSmall systems. Bigger results. Save this checklist and use it tomorrow.\n\nFollow @buildkarbro for practical business systems.\n\n#SmallBusiness #BusinessSystems #Operations #EntrepreneurIndia #BuildKarBro #Productivity",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 6,
     "pillar": "Business Systems",
     "format": "6-slide Carousel",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -781,9 +781,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-09-30-how-to-turn-skills-into-service-packages",
