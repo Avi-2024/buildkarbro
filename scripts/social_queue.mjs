@@ -1,12 +1,12 @@
-// Publisher queue policy: only manually pushed content-bank carousels are eligible.
-export function isContentBankPost(post) {
+// Only explicitly approved carousels with repository-hosted assets are eligible.
+export function isApprovedPost(post) {
   return Boolean(
     post &&
     post.manual_approved === true &&
     Array.isArray(post.image_urls) &&
     post.image_urls.length > 0 &&
     post.image_urls.every((url) =>
-      typeof url === "string" && url.includes("/assets/content-bank/")
+      typeof url === "string" && (/\/assets\/(?:content-bank|daily)\/[^?#]+\.jpe?g(?:[?#]|$)/i.test(url))
     )
   );
 }
@@ -14,7 +14,7 @@ export function isContentBankPost(post) {
 export function isPending(post) {
   return Boolean(
     post &&
-    isContentBankPost(post) &&
+    isApprovedPost(post) &&
     !post.published_at &&
     !post.skipped_at &&
     post.publish_at &&
@@ -35,7 +35,7 @@ export function getDuePosts(posts, now = new Date()) {
       publishMs: post?.publish_at ? new Date(post.publish_at).getTime() : NaN,
     }))
     .filter(({ post, publishMs }) => isPending(post) && publishMs <= nowMs)
-    .sort((a, b) => b.publishMs - a.publishMs || b.index - a.index)
+    .sort((a, b) => a.publishMs - b.publishMs || a.index - b.index)
     .map(({ post }) => post);
 }
 
@@ -43,20 +43,3 @@ export function selectDuePost(posts, now = new Date()) {
   return getDuePosts(posts, now)[0] || null;
 }
 
-export function markSupersededBacklog(posts, selected, now = new Date()) {
-  if (!selected) return [];
-
-  const nowIso = (now instanceof Date ? now : new Date(now)).toISOString();
-  const due = getDuePosts(posts, now);
-  const skipped = [];
-
-  for (const post of due) {
-    if (post === selected) continue;
-
-    post.skipped_at = nowIso;
-    post.skip_reason = `superseded_by_${selected.id}`;
-    skipped.push(post.id || "(missing-id)");
-  }
-
-  return skipped;
-}
