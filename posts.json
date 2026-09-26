@@ -508,7 +508,7 @@
   },
   {
     "id": "daily-2026-09-22-how-to-turn-skills-into-service-packages",
-    "publish_at": "2026-09-23T09:00:00+05:30",
+    "publish_at": "2026-09-28T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-2.jpg",
@@ -532,11 +532,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-23-why-small-creators-should-document-not-flex",
-    "publish_at": "2026-09-24T09:00:00+05:30",
+    "publish_at": "2026-09-29T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-23/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-23/slide-2.jpg",
@@ -560,11 +561,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-24-daily-operations-checklist-for-small-business",
-    "publish_at": "2026-09-25T09:00:00+05:30",
+    "publish_at": "2026-09-30T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-24/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-24/slide-2.jpg",
@@ -588,11 +590,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-25-how-to-validate-a-product-before-building-it",
-    "publish_at": "2026-09-25T09:00:00+05:30",
+    "publish_at": "2026-10-01T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-25/slide-2.jpg",
@@ -616,11 +619,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-26-build-before-you-overthink-the-stack",
-    "publish_at": "2026-09-26T09:00:00+05:30",
+    "publish_at": "2026-10-02T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-26/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-26/slide-2.jpg",
@@ -644,11 +648,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-27-17-ideas-0-finished-the-real-problem",
-    "publish_at": "2026-09-27T09:00:00+05:30",
+    "publish_at": "2026-10-03T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-27/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-27/slide-2.jpg",
@@ -672,11 +677,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-28-free-ai-tools-that-replace-boring-daily-tasks",
-    "publish_at": "2026-09-28T09:00:00+05:30",
+    "publish_at": "2026-10-04T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-2.jpg",
@@ -700,11 +706,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-29-the-prompt-framework-beginners-should-copy",
-    "publish_at": "2026-09-29T09:00:00+05:30",
+    "publish_at": "2026-10-05T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-29/slide-2.jpg",
@@ -728,11 +735,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-16-daily-operations-checklist-for-small-business",
-    "publish_at": "2026-09-16T09:00:00+05:30",
+    "publish_at": "2026-09-27T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-16/slide-2.jpg",
@@ -757,12 +765,11 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "skipped_at": "2026-09-18T14:07:31.807Z",
-    "skip_reason": "superseded_by_daily-2026-09-17-how-to-validate-a-product-before-building-it"
+    "manual_approved": true
   },
   {
     "id": "daily-2026-09-30-how-to-turn-skills-into-service-packages",
-    "publish_at": "2026-09-30T09:00:00+05:30",
+    "publish_at": "2026-10-06T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-30/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-30/slide-2.jpg",
@@ -786,11 +793,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-01-why-small-creators-should-document-not-flex",
-    "publish_at": "2026-10-01T09:00:00+05:30",
+    "publish_at": "2026-10-07T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-01/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-01/slide-2.jpg",
@@ -814,11 +822,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-02-resume-proof-students-can-build-in-30-days",
-    "publish_at": "2026-10-02T09:00:00+05:30",
+    "publish_at": "2026-10-08T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-2.jpg",
@@ -842,11 +851,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-03-how-to-reduce-manual-work-using-simple-automations",
-    "publish_at": "2026-10-03T09:00:00+05:30",
+    "publish_at": "2026-10-09T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-03/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-03/slide-2.jpg",
@@ -870,11 +880,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-04-the-simple-offer-formula-for-creators",
-    "publish_at": "2026-10-04T09:00:00+05:30",
+    "publish_at": "2026-10-10T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-04/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-04/slide-2.jpg",
@@ -898,11 +909,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-05-build-small-tools-instead-of-only-watching-tutorials",
-    "publish_at": "2026-10-05T09:00:00+05:30",
+    "publish_at": "2026-10-11T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-05/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-05/slide-2.jpg",
@@ -926,11 +938,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-06-one-project-for-7-days-the-creator-challenge",
-    "publish_at": "2026-10-06T09:00:00+05:30",
+    "publish_at": "2026-10-12T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-06/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-06/slide-2.jpg",
@@ -954,11 +967,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-07-the-prompt-framework-beginners-should-copy",
-    "publish_at": "2026-10-07T09:00:00+05:30",
+    "publish_at": "2026-10-13T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-07/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-07/slide-2.jpg",
@@ -982,11 +996,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-08-how-to-turn-skills-into-service-packages",
-    "publish_at": "2026-10-08T09:00:00+05:30",
+    "publish_at": "2026-10-14T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-08/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-08/slide-2.jpg",
@@ -1010,11 +1025,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-09-why-small-creators-should-document-not-flex",
-    "publish_at": "2026-10-09T09:00:00+05:30",
+    "publish_at": "2026-10-15T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-09/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-09/slide-2.jpg",
@@ -1038,11 +1054,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-10-resume-proof-students-can-build-in-30-days",
-    "publish_at": "2026-10-10T09:00:00+05:30",
+    "publish_at": "2026-10-16T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-10/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-10/slide-2.jpg",
@@ -1066,11 +1083,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-11-how-to-reduce-manual-work-using-simple-automations",
-    "publish_at": "2026-10-11T09:00:00+05:30",
+    "publish_at": "2026-10-17T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-11/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-11/slide-2.jpg",
@@ -1094,11 +1112,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-12-digital-product-ideas-beginners-can-sell",
-    "publish_at": "2026-10-12T09:00:00+05:30",
+    "publish_at": "2026-10-18T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-2.jpg",
@@ -1122,11 +1141,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-13-no-code-automation-ideas-for-beginners",
-    "publish_at": "2026-10-13T09:00:00+05:30",
+    "publish_at": "2026-10-19T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-13/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-13/slide-2.jpg",
@@ -1150,11 +1170,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-14-why-discipline-beats-motivation-for-online-growth",
-    "publish_at": "2026-10-14T09:00:00+05:30",
+    "publish_at": "2026-10-20T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-14/slide-2.jpg",
@@ -1178,11 +1199,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-15-ai-tools-for-students-who-want-smarter-study-systems",
-    "publish_at": "2026-10-15T09:00:00+05:30",
+    "publish_at": "2026-10-21T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-15/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-15/slide-2.jpg",
@@ -1206,11 +1228,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-16-build-a-weekly-content-system-using-ai",
-    "publish_at": "2026-10-16T09:00:00+05:30",
+    "publish_at": "2026-10-22T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-16/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-16/slide-2.jpg",
@@ -1234,11 +1257,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-17-how-to-price-your-first-digital-service",
-    "publish_at": "2026-10-17T09:00:00+05:30",
+    "publish_at": "2026-10-23T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-17/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-17/slide-2.jpg",
@@ -1262,11 +1286,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-18-the-content-pillar-system-for-beginners",
-    "publish_at": "2026-10-18T09:00:00+05:30",
+    "publish_at": "2026-10-24T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-18/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-18/slide-2.jpg",
@@ -1290,11 +1315,12 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "daily-2026-10-19-how-to-use-ai-for-notes-without-copying",
-    "publish_at": "2026-10-19T09:00:00+05:30",
+    "publish_at": "2026-10-25T09:00:00+05:30",
     "image_urls": [
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-19/slide-1.jpg",
       "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-19/slide-2.jpg",
@@ -1318,7 +1344,8 @@
     "media_product_type": null,
     "facebook_status": null,
     "facebook_post_id": null,
-    "facebook_permalink": null
+    "facebook_permalink": null,
+    "manual_approved": true
   },
   {
     "id": "requeue-2026-09-17-how-to-validate-a-product-before-building-it",
