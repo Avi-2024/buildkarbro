@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import { markSupersededBacklog, selectDuePost } from "./social_queue.mjs";
+import { selectDuePost } from "./social_queue.mjs";
 
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
 const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
@@ -65,10 +65,5 @@ for (let index = 0; index < due.image_urls.length; index += 1) {
   console.log(`Media ${index + 1}/${due.image_urls.length} OK (${bytes.length} bytes).`);
 }
 
-const skipped = markSupersededBacklog(posts, due);
-if (skipped.length > 0) {
-  await fs.writeFile(POSTS_FILE, `${JSON.stringify(posts, null, 2)}\n`);
-  console.log(`Skipped ${skipped.length} stale backlog post(s): ${skipped.join(", ")}`);
-}
 
 console.log(`Preflight OK for ${due.id}: ${due.image_urls.length} image(s), caption ${[...caption].length} chars.`);
