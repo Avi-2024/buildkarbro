@@ -67,7 +67,12 @@ if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array
 
 const due = selectDuePost(posts);
 if (!due) {
-  console.log("No due pushed content-bank carousel.");
+  console.log("No due carousel.");
+  process.exit(0);
+}
+
+if (!due.image_urls.every((url) => url.includes("/assets/content-bank/"))) {
+  console.log("Due carousel uses generated daily assets; no content-bank normalization needed.");
   process.exit(0);
 }
 
