@@ -533,7 +533,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-23-why-small-creators-should-document-not-flex",
@@ -562,7 +564,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-24-daily-operations-checklist-for-small-business",
@@ -591,7 +595,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-25-how-to-validate-a-product-before-building-it",
@@ -620,7 +626,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-26-build-before-you-overthink-the-stack",
@@ -649,7 +657,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-27-17-ideas-0-finished-the-real-problem",
@@ -678,7 +688,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-28-free-ai-tools-that-replace-boring-daily-tasks",
@@ -707,7 +719,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-29-the-prompt-framework-beginners-should-copy",
@@ -736,7 +750,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-16-daily-operations-checklist-for-small-business",
@@ -765,7 +781,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-09-30-how-to-turn-skills-into-service-packages",
@@ -794,7 +812,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-01-why-small-creators-should-document-not-flex",
@@ -823,7 +843,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-02-resume-proof-students-can-build-in-30-days",
@@ -852,7 +874,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-03-how-to-reduce-manual-work-using-simple-automations",
@@ -881,7 +905,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-04-the-simple-offer-formula-for-creators",
@@ -910,7 +936,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-05-build-small-tools-instead-of-only-watching-tutorials",
@@ -939,7 +967,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-06-one-project-for-7-days-the-creator-challenge",
@@ -968,7 +998,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-07-the-prompt-framework-beginners-should-copy",
@@ -997,7 +1029,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-08-how-to-turn-skills-into-service-packages",
@@ -1026,7 +1060,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-09-why-small-creators-should-document-not-flex",
@@ -1055,7 +1091,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-10-resume-proof-students-can-build-in-30-days",
@@ -1084,7 +1122,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-11-how-to-reduce-manual-work-using-simple-automations",
@@ -1113,7 +1153,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-12-digital-product-ideas-beginners-can-sell",
@@ -1142,7 +1184,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-13-no-code-automation-ideas-for-beginners",
@@ -1171,7 +1215,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-14-why-discipline-beats-motivation-for-online-growth",
@@ -1200,7 +1246,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-15-ai-tools-for-students-who-want-smarter-study-systems",
@@ -1229,7 +1277,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-16-build-a-weekly-content-system-using-ai",
@@ -1258,7 +1308,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-17-how-to-price-your-first-digital-service",
@@ -1287,7 +1339,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-18-the-content-pillar-system-for-beginners",
@@ -1316,7 +1370,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "daily-2026-10-19-how-to-use-ai-for-notes-without-copying",
@@ -1345,7 +1401,9 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": true
+    "manual_approved": false,
+    "skipped_at": "2026-09-26T17:28:16.775Z",
+    "skip_reason": "ai_visual_required_replace_fallback_assets"
   },
   {
     "id": "requeue-2026-09-17-how-to-validate-a-product-before-building-it",
