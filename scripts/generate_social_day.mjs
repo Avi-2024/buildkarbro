@@ -7,7 +7,6 @@ const REPO = process.env.GITHUB_REPOSITORY || "Avi-2024/buildkarbro";
 const BRANCH = process.env.GITHUB_REF_NAME || "main";
 const POSTS_FILE = process.env.POSTS_FILE || "posts.json";
 const TIMEZONE = process.env.TIMEZONE || "Asia/Kolkata";
-const REQUIRE_AI_IMAGE = process.env.REQUIRE_AI_IMAGE === "true";
 
 function todayInTimezone(timeZone = TIMEZONE) {
   if (process.env.TARGET_DATE) return process.env.TARGET_DATE;
@@ -53,16 +52,14 @@ function textLines(lines, x, y, size, fill, weight = 800, gap = 1.08) {
 }
 
 async function maybeGenerateAiHero(entry, outDir) {
-  const provider = (process.env.IMAGE_PROVIDER || "").toLowerCase();
+  const provider = (process.env.IMAGE_PROVIDER || "openai").toLowerCase();
   const apiKey = process.env.IMAGE_API_KEY || process.env.OPENAI_API_KEY;
-  if (!provider || !apiKey) return null;
+  if (!apiKey) throw new Error("AI image API key is missing; refusing to generate fallback artwork.");
 
   const prompt = `${entry.visualPrompt}\nBrand style: faceless premium creator, orange hoodie, minimal white studio, subtle blue/orange gradients. No words, no letters, no logos, no watermark.`;
 
   if (provider !== "openai") {
-    console.log(`IMAGE_PROVIDER=${provider} is not implemented in this repo yet. Falling back to branded vector art.`);
-    if (REQUIRE_AI_IMAGE) throw new Error(`Unsupported IMAGE_PROVIDER: ${provider}`);
-    return null;
+    throw new Error(`Unsupported IMAGE_PROVIDER: ${provider}; AI image is required.`);
   }
 
   const response = await fetch("https://api.openai.com/v1/images/generations", {
@@ -83,8 +80,7 @@ async function maybeGenerateAiHero(entry, outDir) {
   if (!response.ok) {
     const body = await response.text();
     console.log(`OpenAI image generation failed: HTTP ${response.status} ${body.slice(0, 500)}`);
-    if (REQUIRE_AI_IMAGE) throw new Error("AI image generation failed.");
-    return null;
+    throw new Error("AI image generation failed; carousel was not queued.");
   }
 
   const data = await response.json();
@@ -103,27 +99,11 @@ async function maybeGenerateAiHero(entry, outDir) {
     return heroPath;
   }
 
-  if (REQUIRE_AI_IMAGE) throw new Error("AI image response did not contain b64_json or url.");
-  return null;
-}
-
-function vectorCharacter() {
-  return `
-  <g transform="translate(692 455)">
-    <ellipse cx="96" cy="320" rx="190" ry="54" fill="#E5E7EB" opacity=".65"/>
-    <path d="M3 274c17-103 55-161 119-174 68 13 107 70 126 174 7 40-19 80-59 85-47 6-90 8-132 0-40-7-61-47-54-85Z" fill="#F97316"/>
-    <path d="M48 270c19 19 49 30 88 30s67-10 85-30l10 69c-76 30-144 30-207 0l24-69Z" fill="#EA580C" opacity=".78"/>
-    <circle cx="123" cy="81" r="70" fill="#F9A8D4"/>
-    <path d="M69 70c14-47 78-74 124-33 25 23 27 60 6 89-39-21-83-34-130-56Z" fill="#111827"/>
-    <path d="M79 108c29 23 68 33 118 22-11 34-36 54-74 54-36 0-59-24-44-76Z" fill="#FBCFE8"/>
-    <path d="M86 198h75l21 63H61l25-63Z" fill="#111827" opacity=".16"/>
-    <rect x="-35" y="250" width="97" height="28" rx="14" fill="#111827" opacity=".12"/>
-    <rect x="146" y="250" width="110" height="28" rx="14" fill="#111827" opacity=".12"/>
-  </g>`;
+  throw new Error("AI image response did not contain b64_json or url.");
 }
 
 async function imageTag(heroPath) {
-  if (!heroPath) return vectorCharacter();
+  if (!heroPath) throw new Error("AI hero image is required for every carousel slide.");
   const raw = await fs.readFile(heroPath);
   const optimized = await sharp(raw).resize(430, 430, { fit: "cover" }).png().toBuffer();
   const b64 = optimized.toString("base64");
@@ -213,7 +193,7 @@ async function main() {
     calendar_day: entry.dayNumber,
     pillar: entry.pillar,
     format: entry.format,
-    ai_visual_used: Boolean(heroPath),
+    ai_visual_used: true,
     published_at: null,
     instagram_media_id: null,
     instagram_permalink: null,
