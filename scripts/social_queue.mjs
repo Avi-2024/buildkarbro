@@ -7,7 +7,7 @@ export function isApprovedPost(post) {
     post.image_urls.length > 0 &&
     (post.ai_visual_used !== false) &&
     post.image_urls.every((url) =>
-      typeof url === "string" && (/\/assets\/(?:content-bank|daily)\/[^?#]+\.jpe?g(?:[?#]|$)/i.test(url))
+      typeof url === "string" && (/\/assets\/(?:content-bank|daily|approved)\/[^?#]+\.jpe?g(?:[?#]|$)/i.test(url))
     )
   );
 }
