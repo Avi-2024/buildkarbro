@@ -510,19 +510,19 @@
     "id": "daily-2026-09-22-how-to-turn-skills-into-service-packages",
     "publish_at": "2026-09-28T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-22/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-09-28/slide-6.jpg"
     ],
-    "caption": "How to turn skills into service packages\n\nReality: Small daily output compounds faster than perfect planning.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nShare this with your ambitious friend.\n\n#Freelancing #ClientAcquisition #FreelancerLife #BuildKarBro #IndianFreelancer #OnlineBusiness",
+    "caption": "Turn your skill into a service package 📦\n\nClients buy a clear result, not a vague skill.\n\n1️⃣ Pick one problem your ideal client faces.\n2️⃣ Define a result you can actually deliver.\n3️⃣ Set the scope: deliverables, timeline and revisions.\n4️⃣ Show proof with a sample, process or real testimonial.\n\nA clear offer is easier to understand, price and buy. Save this framework for your next proposal.\n\nFollow @buildkarbro for practical freelancing systems.\n\n#Freelancing #ServicePackages #ClientAcquisition #IndianFreelancer #BuildKarBro #OnlineBusiness",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 12,
     "pillar": "Freelancing",
     "format": "7-slide Carousel",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -533,9 +533,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-09-23-why-small-creators-should-document-not-flex",
