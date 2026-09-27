@@ -690,19 +690,19 @@
     "id": "daily-2026-09-28-free-ai-tools-that-replace-boring-daily-tasks",
     "publish_at": "2026-10-04T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-09-28/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-04/slide-6.jpg"
     ],
-    "caption": "Free AI tools that replace boring daily tasks\n\nReality: Growth comes from repeatable systems, not random motivation.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nShare this with your ambitious friend.\n\n#AI #AITools #ChatGPT #CreatorTools #BuildKarBro #IndiaCreators #Productivity",
+    "caption": "AI ko boring tasks do, apna judgment apne paas rakho. 🤖\n\nRoutine messages ka first draft banao, long notes ka summary lo, aur scattered ideas ko clear steps mein organize karo. Final answer ko facts, tone aur context ke liye khud check karo.\n\nAaj ek repetitive task choose karke AI se first draft lo. Kaunsa task sabse zyada time khata hai? Comments mein batao.\n\nFollow @buildkarbro for practical creator and business workflows.\n\n#buildkarbro #aitools #productivity #creatorlife #smallbusiness #workflows #hindi",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 18,
     "pillar": "AI Tools",
     "format": "Story Carousel",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -713,9 +713,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-09-29-the-prompt-framework-beginners-should-copy",
