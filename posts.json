@@ -1152,19 +1152,19 @@
     "id": "daily-2026-10-12-digital-product-ideas-beginners-can-sell",
     "publish_at": "2026-10-18T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-12/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-18/slide-6.jpg"
     ],
-    "caption": "Digital product ideas beginners can sell\n\nReality: One focused project beats ten half-started ideas.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nTry this for 7 days.\n\n#DigitalProducts #OnlineIncome #CreatorBusiness #BuildKarBro #SideIncome #MoneySkills",
+    "caption": "First digital product ke liye simple aur useful idea choose karo. 📦\n\nEk project tracker template, apni skill ka short step-by-step guide, ya kisi repeat task ki checklist banao. Pehle sample dikhakar potential users se honest feedback lo. Unki problem samajhne ke baad product improve karo.\n\nTum in teen ideas mein se kya banaoge? Comments mein batao.\n\nFollow @buildkarbro for practical creator ideas.\n\n#buildkarbro #digitalproducts #creatoreconomy #templates #smallbusiness #buildinpublic #hindi",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 32,
     "pillar": "Money Skills",
     "format": "7-slide Carousel",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -1175,9 +1175,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-10-13-no-code-automation-ideas-for-beginners",
