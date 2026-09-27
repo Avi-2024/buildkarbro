@@ -852,19 +852,19 @@
     "id": "daily-2026-10-02-resume-proof-students-can-build-in-30-days",
     "publish_at": "2026-10-08T09:00:00+05:30",
     "image_urls": [
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-1.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-2.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-3.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-4.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-5.jpg",
-      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/daily/2026-10-02/slide-6.jpg"
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-1.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-2.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-3.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-4.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-5.jpg",
+      "https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-08/slide-6.jpg"
     ],
-    "caption": "Resume proof students can build in 30 days\n\nReality: Growth comes from repeatable systems, not random motivation.\n\nGrowth ka game fancy tools ka nahi, simple repeatable systems ka hai.\nEk chhota action choose karo, usko 7 din repeat karo, aur proof build karo.\n\nSave this + follow @buildkarbro.\n\n#StudentLife #Productivity #CareerGrowth #BuildKarBro #SkillBuilding #StudentsIndia",
+    "caption": "Resume mein sirf skills likhne se kaam nahi chalega. Apna proof dikhao. 🧩\n\n30 din ka project plan:\nWeek 1: Ek real problem choose karo.\nWeek 2: Uska chhota working solution banao.\nWeek 3: Kuch logon se test karvao aur feedback lo.\nWeek 4: Problem, process, demo aur learning ko portfolio case study mein dikhayo.\n\nEk complete project start karo. Kaunsa problem solve karoge?\n\nFollow @buildkarbro for build-in-public ideas.\n\n#buildkarbro #studentportfolio #projects #buildinpublic #developerlife #careergrowth #hindi",
     "content_source": "content/buildkarbro-365-calendar.json",
     "calendar_day": 22,
     "pillar": "Student Productivity",
     "format": "Reel Script",
-    "ai_visual_used": false,
+    "ai_visual_used": true,
     "published_at": null,
     "instagram_media_id": null,
     "instagram_permalink": null,
@@ -875,9 +875,8 @@
     "facebook_status": null,
     "facebook_post_id": null,
     "facebook_permalink": null,
-    "manual_approved": false,
-    "skipped_at": "2026-09-26T17:28:16.775Z",
-    "skip_reason": "ai_visual_required_replace_fallback_assets"
+    "manual_approved": true,
+    "asset_source": "generated_from_user_style_reference"
   },
   {
     "id": "daily-2026-10-03-how-to-reduce-manual-work-using-simple-automations",
