@@ -1,0 +1,103 @@
+name: Prepare remaining 30-day social posts
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/prepare-30-day-social.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: social-repo-write
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Generate seven original AI carousels
+        env:
+          TIMEZONE: Asia/Kolkata
+          IMAGE_PROVIDER: ${{ secrets.IMAGE_PROVIDER }}
+          IMAGE_API_KEY: ${{ secrets.IMAGE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_IMAGE_MODEL: ${{ secrets.OPENAI_IMAGE_MODEL }}
+          OPENAI_IMAGE_SIZE: ${{ secrets.OPENAI_IMAGE_SIZE }}
+          OPENAI_IMAGE_QUALITY: ${{ secrets.OPENAI_IMAGE_QUALITY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const posts = JSON.parse(fs.readFileSync("posts.json", "utf8"));
+          const staleDates = new Set(["2026-10-23", "2026-10-24", "2026-10-25"]);
+          const kept = posts.filter(p => !(
+            staleDates.has(p.publish_at?.slice(0, 10)) &&
+            p.skipped_at &&
+            p.skip_reason === "ai_visual_required_replace_fallback_assets"
+          ));
+          if (posts.length - kept.length !== 3) throw new Error("Expected exactly three held fallback posts.");
+          fs.writeFileSync("posts.json", JSON.stringify(kept, null, 2) + "\n");
+          NODE
+
+          for target_date in 2026-10-17 2026-10-18 2026-10-19 2026-10-20 2026-10-21 2026-10-22 2026-10-23; do
+            TARGET_DATE="$target_date" node scripts/generate_social_day.mjs
+          done
+
+      - name: Approve generated originals for October 23–29
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          import path from "node:path";
+          const posts = JSON.parse(fs.readFileSync("posts.json", "utf8"));
+          const start = "2026-10-23", end = "2026-10-29";
+          const selected = posts.filter(p => p.publish_at?.slice(0, 10) >= start && p.publish_at?.slice(0, 10) <= end);
+          if (selected.length !== 7) throw new Error(`Expected seven future posts, got ${selected.length}.`);
+          for (const post of selected) {
+            const date = post.publish_at.slice(0, 10);
+            const sourceDate = new Date(Date.parse(date + "T00:00:00Z") - 6 * 86400000).toISOString().slice(0, 10);
+            const targetDir = path.join("assets", "approved", date);
+            fs.mkdirSync(targetDir, { recursive: true });
+            for (let n = 1; n <= 6; n++) {
+              const source = path.join("assets", "daily", sourceDate, `slide-${n}.jpg`);
+              const destination = path.join(targetDir, `slide-${n}.jpg`);
+              if (!fs.existsSync(source) || fs.statSync(source).size < 10000) throw new Error(`Invalid generated JPEG: ${source}`);
+              fs.copyFileSync(source, destination);
+            }
+            post.image_urls = Array.from({length: 6}, (_, index) =>
+              `https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/${date}/slide-${index + 1}.jpg`);
+            post.manual_approved = true;
+            post.ai_visual_used = true;
+            post.asset_source = "generated_ai_hero_original";
+            delete post.skipped_at;
+            delete post.skip_reason;
+          }
+          fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2) + "\n");
+          NODE
+      - name: Commit scheduled posts and images
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "social-content-generator[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts.json assets/approved/2026-10-2* assets/daily/2026-10-1* assets/daily/2026-10-2*
+          if git diff --cached --quiet; then
+            echo "No content changes."
+            exit 0
+          fi
+          git commit -m "content: prepare approved carousels through October 29"
+          git pull --rebase origin main
+          git push
