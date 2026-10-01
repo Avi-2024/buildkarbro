@@ -19,6 +19,22 @@ if (/^[\"'`]|[\"'`]$/.test(ACCESS_TOKEN)) {
   throw new Error("META_ACCESS_TOKEN appears to be quoted. Save only the raw Instagram access token in the GitHub secret.");
 }
 
+let posts;
+let due;
+async function saveQueue() {
+  await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 2) + "\n");
+}
+
+async function handleGraphFailure(response, data) {
+  const code = Number(data?.error?.code);
+  if (due && (response.status === 429 || [4, 17, 32, 613].includes(code))) {
+    due.instagram_retry_after = new Date(Date.now() + 6 * 60 * 60 * 1000).toISOString();
+    due.instagram_last_error = formatGraphError(response, data);
+    await saveQueue();
+  }
+  throw new Error(formatGraphError(response, data));
+}
+
 function formatGraphError(response, data) {
   const error = data?.error || {};
   const details = [
@@ -45,7 +61,7 @@ async function graphPost(path, params = {}) {
   });
   const data = await response.json();
 
-  if (!response.ok || data.error) throw new Error(formatGraphError(response, data));
+  if (!response.ok || data.error) await handleGraphFailure(response, data);
   return data;
 }
 
@@ -60,7 +76,7 @@ async function graphGet(path, params = {}) {
   const response = await fetch(url);
   const data = await response.json();
 
-  if (!response.ok || data.error) throw new Error(formatGraphError(response, data));
+  if (!response.ok || data.error) await handleGraphFailure(response, data);
   return data;
 }
 
@@ -75,7 +91,7 @@ async function waitForContainer(containerId, label) {
 
     if (code === "FINISHED" || code === "PUBLISHED") {
       console.log(`${label} container is ready (${code}).`);
-      return;
+      return code;
     }
 
     if (code === "ERROR" || code === "EXPIRED") {
@@ -91,25 +107,19 @@ async function waitForContainer(containerId, label) {
   }
 }
 
-const account = await graphGet(IG_USER_ID, { fields: "id,username" });
-const actualUsername = String(account.username || "").toLowerCase();
-
-if (!actualUsername) throw new Error(`Instagram account ${IG_USER_ID} did not return a username.`);
-if (actualUsername !== EXPECTED_USERNAME.toLowerCase()) {
-  throw new Error(`Safety stop: Instagram ID ${IG_USER_ID} resolves to @${account.username}, expected @${EXPECTED_USERNAME}.`);
-}
-
-console.log(`Instagram publishing account verified: @${account.username} (${account.id}).`);
-
-const posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
+posts = JSON.parse(await fs.readFile(POSTS_FILE, "utf8"));
 if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array.");
-
-const due = selectDuePost(posts);
-
-if (!due) {
-  console.log("No due Instagram post.");
+due = selectDuePost(posts);
+if (!due) { console.log("No due Instagram post."); process.exit(0); }
+if (new Date(due.instagram_retry_after).getTime() > Date.now()) {
+  console.log(`Instagram rate-limit cooldown until ${due.instagram_retry_after}; no API requests made.`);
   process.exit(0);
 }
+const account = await graphGet(IG_USER_ID, { fields: "id,username" });
+if (String(account.username || "").toLowerCase() !== EXPECTED_USERNAME.toLowerCase()) {
+  throw new Error(`Instagram account mismatch: expected @${EXPECTED_USERNAME}.`);
+}
+console.log(`Instagram publishing account verified: @${account.username} (${account.id}).`);
 
 if (!Array.isArray(due.image_urls) || due.image_urls.length < 1 || due.image_urls.length > 10) {
   throw new Error("Due post must contain between 1 and 10 image_urls.");
@@ -127,37 +137,42 @@ delete due.verification_failed_at;
 
 console.log(`Publishing ${due.id} with ${due.image_urls.length} image(s).`);
 
-let creation;
-
-if (due.image_urls.length === 1) {
-  creation = await graphPost(`${IG_USER_ID}/media`, {
-    image_url: due.image_urls[0],
-    caption: due.caption || "",
-  });
-  await waitForContainer(creation.id, "Image");
-} else {
-  const childIds = [];
-
-  for (const imageUrl of due.image_urls) {
-    const child = await graphPost(`${IG_USER_ID}/media`, {
-      image_url: imageUrl,
-      is_carousel_item: "true",
-    });
-    childIds.push(child.id);
-  }
-
-  await Promise.all(
-    childIds.map((childId, index) => waitForContainer(childId, `Carousel item ${index + 1}`))
-  );
-
-  creation = await graphPost(`${IG_USER_ID}/media`, {
-    media_type: "CAROUSEL",
-    children: childIds,
-    caption: due.caption || "",
-  });
-  await waitForContainer(creation.id, "Carousel");
+// Persist each container so a retry does not create another six children.
+const signature = JSON.stringify([due.image_urls, due.caption]);
+let attempt = due.instagram_attempt;
+if (attempt?.publish_requested_at && Date.now() - new Date(attempt.started_at).getTime() > 23 * 60 * 60 * 1000) {
+  throw new Error("An older publish attempt has an uncertain result. Verify existing Instagram media before creating new containers.");
 }
+if (!attempt || attempt.signature !== signature || Date.now() - new Date(attempt.started_at).getTime() > 23 * 60 * 60 * 1000) {
+  attempt = { signature, started_at: new Date().toISOString(), child_ids: [], creation_id: null };
+  due.instagram_attempt = attempt;
+  await saveQueue();
+}
+if (!attempt.creation_id) {
+  if (due.image_urls.length === 1) {
+    const created = await graphPost(`${IG_USER_ID}/media`, { image_url: due.image_urls[0], caption: due.caption || "" });
+    attempt.creation_id = created.id;
+    await saveQueue();
+  } else {
+    for (let index = attempt.child_ids.length; index < due.image_urls.length; index++) {
+      const child = await graphPost(`${IG_USER_ID}/media`, { image_url: due.image_urls[index], is_carousel_item: "true" });
+      attempt.child_ids.push(child.id);
+      await saveQueue();
+    }
+    await Promise.all(attempt.child_ids.map((id, index) => waitForContainer(id, `Carousel item ${index + 1}`)));
+    const created = await graphPost(`${IG_USER_ID}/media`, { media_type: "CAROUSEL", children: attempt.child_ids, caption: due.caption || "" });
+    attempt.creation_id = created.id;
+    await saveQueue();
+  }
+}
+const status = await waitForContainer(attempt.creation_id, "Post");
+if (status === "PUBLISHED") {
+  throw new Error("Saved container is already published. Verify existing Instagram media before retrying; refusing a duplicate post.");
+}
+const creation = { id: attempt.creation_id };
 
+attempt.publish_requested_at = new Date().toISOString();
+await saveQueue();
 const published = await graphPost(`${IG_USER_ID}/media_publish`, {
   creation_id: creation.id,
 });
@@ -166,6 +181,9 @@ if (!published.id) throw new Error("Instagram media_publish did not return a med
 
 due.published_at = new Date().toISOString();
 due.instagram_media_id = published.id;
+delete due.instagram_attempt;
+delete due.instagram_retry_after;
+delete due.instagram_last_error;
 
 await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 2) + "\n");
 console.log(`Published Instagram post ${due.id} as media ${published.id}`);

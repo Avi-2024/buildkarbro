@@ -18,6 +18,7 @@ on:
     - cron: "30,40,50 3 * * *" # 09:00, 09:10, 09:20 IST
     - cron: "0,10,20,30 4 * * *" # 09:30 through 10:00 IST
     - cron: "0,30 5 * * *" # 10:30 and 11:00 IST
+    - cron: "30 9,12 * * *" # 15:00 and 18:00 IST recovery after a rate-limit cooldown
   workflow_dispatch:
 
 permissions:

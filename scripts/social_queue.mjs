@@ -5,7 +5,7 @@ export function isApprovedPost(post) {
     post.manual_approved === true &&
     Array.isArray(post.image_urls) &&
     post.image_urls.length > 0 &&
-    (post.ai_visual_used !== false) &&
+    post.ai_visual_used === true &&
     post.image_urls.every((url) =>
       typeof url === "string" && (/\/assets\/(?:content-bank|daily|approved)\/[^?#]+\.jpe?g(?:[?#]|$)/i.test(url))
     )
@@ -43,4 +43,3 @@ export function getDuePosts(posts, now = new Date()) {
 export function selectDuePost(posts, now = new Date()) {
   return getDuePosts(posts, now)[0] || null;
 }
-

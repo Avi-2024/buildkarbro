@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { isApprovedPost } from "./social_queue.mjs";
 
 const PAGE_ID = process.env.FACEBOOK_PAGE_ID || "1392360773951187";
 const RAW_ACCESS_TOKEN = (process.env.FACEBOOK_PAGE_ACCESS_TOKEN || "").trim();
@@ -166,6 +167,7 @@ if (!Array.isArray(posts)) throw new Error("posts.json must contain a JSON array
 
 const target = posts
   .filter((post) =>
+    isApprovedPost(post) &&
     post.published_at &&
     post.instagram_media_id &&
     post.verified_at &&
