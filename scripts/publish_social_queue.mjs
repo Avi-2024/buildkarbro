@@ -12,7 +12,15 @@ export async function publishDueQueue({ readPosts, run, maxPosts = 3, requireFac
     const due = selectDuePost(await readPosts());
     if (!due) break;
     await run("preflight_instagram.mjs");
-    await run("publish_instagram.mjs");
+    try {
+      await run("publish_instagram.mjs");
+    } catch (error) {
+      // A rejected response does not prove the publish write failed. Verify once
+      // before deciding whether to stop; never issue another publish request here.
+      await run("verify_instagram_publish.mjs");
+      const recovered = (await readPosts()).find(post => post.id === due.id);
+      if (!recovered?.published_at || !recovered.instagram_media_id) throw error;
+    }
     let saved = (await readPosts()).find(post => post.id === due.id);
     if (!saved?.published_at || !saved.instagram_media_id) {
       throw new Error(`Post ${due.id} is still unpublished${saved?.instagram_retry_after ? `; cooldown until ${saved.instagram_retry_after}` : ""}. Stopping without advancing the queue.`);

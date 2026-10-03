@@ -59,3 +59,22 @@ test("unapproved or fallback entries are not published", async () => {
   await publishDueQueue(f);
   assert.deepEqual(f.published, ["post-3"]);
 });
+
+test("an error response after a real publish is verified before continuing", async () => {
+  const f = fixture();
+  const result = await publishDueQueue({...f, requireFacebook: true, run: async script => {
+    await f.run(script);
+    if (script === "publish_instagram.mjs") throw new Error("API returned an error after publishing");
+  }});
+  assert.equal(result.length, 3);
+  assert.deepEqual(f.published, ["post-1", "post-2", "post-3"]);
+});
+
+test("a real publish failure is not ignored by read-only verification", async () => {
+  const f = fixture();
+  await assert.rejects(publishDueQueue({...f, run: async script => {
+    if (script === "publish_instagram.mjs") throw new Error("Actual API limit");
+    await f.run(script);
+  }}), /Actual API limit/);
+  assert.deepEqual(f.published, []);
+});

@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const publisher = fileURLToPath(new URL("../scripts/publish_instagram.mjs", import.meta.url));
+const verifier = fileURLToPath(new URL("../scripts/verify_instagram_publish.mjs", import.meta.url));
 const mock = `
 import fs from "node:fs";
 const calls = [];
@@ -24,6 +25,8 @@ globalThis.fetch = async (input, options = {}) => {
   else if (method === "GET" && endpoint === "media") {
     const item = {id: "existing-media", caption: post.caption, timestamp: new Date().toISOString(), media_type: "CAROUSEL_ALBUM"};
     data = {data: mode === "recover" ? [item] : mode === "ambiguous" ? [item, {...item, id: "second-media"}] : []};
+  } else if (method === "GET" && endpoint === "existing-media") {
+    data = {id: "existing-media", username: "buildkarbro", permalink: "https://www.instagram.com/p/existing/", timestamp: new Date().toISOString(), media_type: "CAROUSEL_ALBUM"};
   } else if (method === "GET") {
     data = {status_code: endpoint === "old-parent" ? (mode === "expired" ? "EXPIRED" : mode === "published-missing" ? "PUBLISHED" : "FINISHED") : "FINISHED"};
   } else if (endpoint === "media_publish") {
@@ -35,7 +38,7 @@ globalThis.fetch = async (input, options = {}) => {
 };
 `;
 
-async function run(mode, changes = {}) {
+async function run(mode, changes = {}, script = publisher) {
   const dir = await fs.mkdtemp(path.join(os.tmpdir(), "instagram-retry-"));
   try {
     const post = {
@@ -54,7 +57,7 @@ async function run(mode, changes = {}) {
     const mockFile = path.join(dir, "mock.mjs");
     await fs.writeFile(postsFile, JSON.stringify([post]));
     await fs.writeFile(mockFile, mock);
-    const result = spawnSync(process.execPath, ["--import", mockFile, publisher], {
+    const result = spawnSync(process.execPath, ["--import", mockFile, script], {
       encoding: "utf8", env: {...process.env, META_ACCESS_TOKEN: "test-token", POSTS_FILE: postsFile, CALLS_FILE: callsFile, MOCK_MODE: mode},
     });
     const saved = JSON.parse(await fs.readFile(postsFile, "utf8"))[0];
@@ -112,4 +115,22 @@ test("cooldown performs no API requests", async () => {
   const {result, calls} = await run("ready", {instagram_retry_after: new Date(Date.now() + 60_000).toISOString()});
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(calls, []);
+});
+
+test("verifier recovers and verifies media after a failed publish response during cooldown", async () => {
+  const {result, saved, calls} = await run("recover", {instagram_retry_after: new Date(Date.now() + 60_000).toISOString()}, verifier);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(saved.instagram_media_id, "existing-media");
+  assert.ok(saved.verified_at);
+  assert.equal(saved.instagram_permalink, "https://www.instagram.com/p/existing/");
+  assert.equal(saved.instagram_retry_after, undefined);
+  assert.equal(calls.some(c => c.method === "POST"), false);
+});
+
+test("verifier keeps a truly rejected post unpublished", async () => {
+  const {result, saved, calls} = await run("ready", {}, verifier);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(saved.published_at, undefined);
+  assert.ok(saved.instagram_attempt);
+  assert.equal(calls.some(c => c.method === "POST"), false);
 });
