@@ -61,7 +61,18 @@ async function graphPost(path, params = {}) {
   });
   const data = await response.json();
 
-  if (!response.ok || data.error) await handleGraphFailure(response, data);
+  if (!response.ok || data.error) {
+    if (path === `${IG_USER_ID}/media_publish` && due?.instagram_attempt) {
+      due.instagram_attempt.publish_failed_at = new Date().toISOString();
+      due.instagram_attempt.publish_error = {
+        code: data?.error?.code ?? null,
+        subcode: data?.error?.error_subcode ?? null,
+        message: formatGraphError(response, data),
+      };
+      await saveQueue();
+    }
+    await handleGraphFailure(response, data);
+  }
   return data;
 }
 
@@ -81,6 +92,49 @@ async function graphGet(path, params = {}) {
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function markPublished(media) {
+  due.published_at = media.timestamp || new Date().toISOString();
+  due.instagram_media_id = media.id;
+  delete due.instagram_attempt;
+  delete due.instagram_retry_after;
+  delete due.instagram_last_error;
+  await saveQueue();
+  console.log(`Published Instagram post ${due.id} as media ${media.id}`);
+}
+
+// Recover a publish response lost before its media ID reached the queue.
+// Only a unique caption/type/time match can be adopted; never blindly repost.
+async function recoverPublishedMedia(attempt) {
+  const since = new Date(attempt.publish_requested_at || attempt.started_at).getTime() - 60_000;
+  if (!Number.isFinite(since)) throw new Error("Saved Instagram attempt has an invalid timestamp.");
+  const knownIds = new Set(posts.filter((post) => post !== due).map((post) => post.instagram_media_id).filter(Boolean));
+  let after;
+  const matches = [];
+  for (let page = 0; page < 5; page++) {
+    const result = await graphGet(`${IG_USER_ID}/media`, {
+      fields: "id,caption,timestamp,media_type", limit: 100, ...(after ? { after } : {}),
+    });
+    if (!Array.isArray(result.data)) throw new Error("Instagram media lookup returned no media list.");
+    for (const media of result.data) {
+      if (!knownIds.has(media.id) && media.caption === (due.caption || "") &&
+          new Date(media.timestamp).getTime() >= since &&
+          (due.image_urls.length === 1 || media.media_type === "CAROUSEL_ALBUM")) matches.push(media);
+    }
+    if (!result.paging?.next) {
+      if (matches.length > 1) throw new Error("Multiple existing Instagram posts match this attempt; refusing a duplicate.");
+      if (matches.length === 1) {
+        await markPublished(matches[0]);
+        console.log("Recovered an already published Instagram post without uploading again.");
+        return true;
+      }
+      return false;
+    }
+    after = result.paging?.cursors?.after;
+    if (!after) throw new Error("Instagram media lookup cannot safely continue pagination.");
+  }
+  throw new Error("Instagram media lookup exceeded its recovery limit; refusing an uncertain repost.");
+}
 
 async function waitForContainer(containerId, label) {
   const maxChecks = 5;
@@ -140,10 +194,24 @@ console.log(`Publishing ${due.id} with ${due.image_urls.length} image(s).`);
 // Persist each container so a retry does not create another six children.
 const signature = JSON.stringify([due.image_urls, due.caption]);
 let attempt = due.instagram_attempt;
-if (attempt?.publish_requested_at && Date.now() - new Date(attempt.started_at).getTime() > 23 * 60 * 60 * 1000) {
-  throw new Error("An older publish attempt has an uncertain result. Verify existing Instagram media before creating new containers.");
+const agedAttempt = attempt && Date.now() - new Date(attempt.started_at).getTime() > 23 * 60 * 60 * 1000;
+if (attempt?.publish_requested_at && (agedAttempt || !attempt.publish_failed_at)) {
+  if (await recoverPublishedMedia(attempt)) process.exit(0);
 }
-if (!attempt || attempt.signature !== signature || Date.now() - new Date(attempt.started_at).getTime() > 23 * 60 * 60 * 1000) {
+if (attempt?.publish_requested_at && attempt.signature !== signature) {
+  throw new Error("The queue content changed after a publish request; review the saved attempt before replacing it.");
+}
+if (attempt?.creation_id && agedAttempt) {
+  const saved = await graphGet(attempt.creation_id, { fields: "status_code,status" });
+  if (saved.status_code === "PUBLISHED") {
+    throw new Error("Saved container is published but its media ID could not be recovered; refusing a duplicate.");
+  }
+  if (["EXPIRED", "ERROR"].includes(saved.status_code)) {
+    console.log(`Saved container is ${saved.status_code}; rebuilding uploads from the approved images.`);
+    attempt = null;
+  }
+}
+if (!attempt || attempt.signature !== signature || (agedAttempt && !attempt.creation_id)) {
   attempt = { signature, started_at: new Date().toISOString(), child_ids: [], creation_id: null };
   due.instagram_attempt = attempt;
   await saveQueue();
@@ -167,11 +235,14 @@ if (!attempt.creation_id) {
 }
 const status = await waitForContainer(attempt.creation_id, "Post");
 if (status === "PUBLISHED") {
-  throw new Error("Saved container is already published. Verify existing Instagram media before retrying; refusing a duplicate post.");
+  if (await recoverPublishedMedia(attempt)) process.exit(0);
+  throw new Error("Saved container is published but its media ID could not be recovered; refusing a duplicate.");
 }
 const creation = { id: attempt.creation_id };
 
 attempt.publish_requested_at = new Date().toISOString();
+delete attempt.publish_failed_at;
+delete attempt.publish_error;
 await saveQueue();
 const published = await graphPost(`${IG_USER_ID}/media_publish`, {
   creation_id: creation.id,
@@ -179,11 +250,4 @@ const published = await graphPost(`${IG_USER_ID}/media_publish`, {
 
 if (!published.id) throw new Error("Instagram media_publish did not return a media id.");
 
-due.published_at = new Date().toISOString();
-due.instagram_media_id = published.id;
-delete due.instagram_attempt;
-delete due.instagram_retry_after;
-delete due.instagram_last_error;
-
-await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 2) + "\n");
-console.log(`Published Instagram post ${due.id} as media ${published.id}`);
+await markPublished(published);
