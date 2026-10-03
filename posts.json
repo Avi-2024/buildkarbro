@@ -660,7 +660,29 @@
     "facebook_post_id": null,
     "facebook_permalink": null,
     "manual_approved": true,
-    "asset_source": "generated_from_user_style_reference"
+    "asset_source": "generated_from_user_style_reference",
+    "instagram_attempt": {
+      "signature": "[[\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-1.jpg\",\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-2.jpg\",\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-3.jpg\",\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-4.jpg\",\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-5.jpg\",\"https://raw.githubusercontent.com/Avi-2024/buildkarbro/main/assets/approved/2026-10-01/slide-6.jpg\"],\"Validate before you build 🔎\\n\\nFind proof people want the result before spending weeks writing code:\\n\\n1️⃣ Name the problem and who faces it.\\n2️⃣ Talk to real people about their current workflow.\\n3️⃣ Test a simple offer with a mockup, landing page or manual service.\\n4️⃣ Watch for real signals: sign-ups, bookings or pre-orders.\\n\\nActions matter more than compliments. Save this framework for your next product idea.\\n\\nFollow @buildkarbro for practical building and business advice.\\n\\n#ProductValidation #BuildInPublic #StartupIndia #DigitalProducts #BuildKarBro #EntrepreneurIndia\"]",
+      "started_at": "2026-10-03T07:38:07.177Z",
+      "child_ids": [
+        "18120850489824972",
+        "18120850507824972",
+        "18120850525824972",
+        "18120850543824972",
+        "18120850561824972",
+        "18120850582824972"
+      ],
+      "creation_id": "18120850798824972",
+      "publish_requested_at": "2026-10-03T07:40:28.741Z",
+      "publish_failed_at": "2026-10-03T07:40:30.873Z",
+      "publish_error": {
+        "code": 4,
+        "subcode": 2207051,
+        "message": "Application request limit reached (type=OAuthException, code=4, subcode=2207051)"
+      }
+    },
+    "instagram_retry_after": "2026-10-03T13:40:30.874Z",
+    "instagram_last_error": "Application request limit reached (type=OAuthException, code=4, subcode=2207051)"
   },
   {
     "id": "daily-2026-09-26-build-before-you-overthink-the-stack",
