@@ -10,11 +10,12 @@ on:
       - "scripts/normalize_due_content_bank.mjs"
       - "scripts/preflight_instagram.mjs"
       - "scripts/publish_instagram.mjs"
+      - "scripts/publish_social_queue.mjs"
       - "posts.json"
       - "assets/approved/**"
   schedule:
     # Try at 09:00 IST, then retry during the morning if GitHub delays a trigger.
-    # The queue selects only unpublished due posts, so later runs exit after success.
+    # Each run processes up to three unpublished due posts to clear missed days.
     - cron: "30,40,50 3 * * *" # 09:00, 09:10, 09:20 IST
     - cron: "0,10,20,30 4 * * *" # 09:30 through 10:00 IST
     - cron: "0,30 5 * * *" # 10:30 and 11:00 IST
@@ -35,6 +36,8 @@ jobs:
     steps:
       - name: Checkout queue
         uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -61,24 +64,15 @@ jobs:
           git pull --rebase origin main
           git push
 
-      - name: Preflight due Instagram post
-        run: node scripts/preflight_instagram.mjs
+      - name: Check queue recovery behavior
+        run: node --test tests/instagram_retry.test.mjs tests/social_queue_publish.test.mjs
 
-      - name: Publish due Instagram post
+      - name: Publish and verify up to three overdue posts
         env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-        run: node scripts/publish_instagram.mjs
-
-      - name: Verify published Instagram media
-        env:
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-        run: node scripts/verify_instagram_publish.mjs
-
-      - name: Publish verified post to Facebook Page
-        env:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID || '1392360773951187' }}
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
-        run: node scripts/publish_facebook.mjs
+        run: node scripts/publish_social_queue.mjs
 
       - name: Save social publish status
         if: always()
