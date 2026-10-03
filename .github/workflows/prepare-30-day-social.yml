@@ -1,13 +1,14 @@
-name: Verify prepared 30-day social posts
+name: Verify approved social batches
 
 on:
   push:
     branches: [main]
     paths:
       - ".github/workflows/prepare-30-day-social.yml"
-      - "content/approved-oct-23-29.json"
+      - "content/approved-*.json"
       - "scripts/verify_approved_batch.mjs"
-      - "assets/approved/2026-10-2*/**"
+      - "assets/approved/**"
+      - "posts.json"
   workflow_dispatch:
 
 permissions:
@@ -21,5 +22,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Verify the seven prepared original AI carousels
-        run: node scripts/verify_approved_batch.mjs
+      - name: Verify the approved AI carousel batches
+        run: |
+          node scripts/verify_approved_batch.mjs content/approved-oct-23-29.json
+          node scripts/verify_approved_batch.mjs content/approved-oct-30-nov-05.json
