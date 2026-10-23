@@ -1648,10 +1648,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-23T08:46:27.930Z",
+    "instagram_media_id": "18044220515832749",
+    "verified_at": "2026-10-23T08:46:28.152Z",
+    "facebook_post_id": "1392360773951187_122123785455481248",
+    "instagram_permalink": "https://www.instagram.com/p/De1KMfWlZXH/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122123785173481248",
+      "122123785227481248",
+      "122123785275481248",
+      "122123785323481248",
+      "122123785371481248",
+      "122123785419481248"
+    ],
+    "facebook_posted_at": "2026-10-23T08:46:45.274Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122123785455481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-24-content-pillars-for-beginners",
