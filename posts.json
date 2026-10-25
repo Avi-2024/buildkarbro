@@ -1728,10 +1728,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-25T08:39:30.075Z",
+    "instagram_media_id": "18137438446650135",
+    "verified_at": "2026-10-25T08:39:30.346Z",
+    "facebook_post_id": "1392360773951187_122124405945481248",
+    "instagram_permalink": "https://www.instagram.com/p/De6S_DEHErL/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122124405561481248",
+      "122124405615481248",
+      "122124405663481248",
+      "122124405795481248",
+      "122124405849481248",
+      "122124405897481248"
+    ],
+    "facebook_posted_at": "2026-10-25T08:39:44.862Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122124405945481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-26-small-business-systems-that-save-daily-time",
