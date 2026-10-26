@@ -1768,10 +1768,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-26T09:14:42.241Z",
+    "instagram_media_id": "18359133607168281",
+    "verified_at": "2026-10-26T09:14:42.567Z",
+    "facebook_post_id": "1392360773951187_122124723381481248",
+    "instagram_permalink": "https://www.instagram.com/p/De87zuBm6dl/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122124723099481248",
+      "122124723147481248",
+      "122124723195481248",
+      "122124723249481248",
+      "122124723297481248",
+      "122124723345481248"
+    ],
+    "facebook_posted_at": "2026-10-26T09:14:53.393Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122124723381481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-27-turn-templates-into-a-digital-product",
