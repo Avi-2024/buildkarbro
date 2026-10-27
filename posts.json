@@ -1808,10 +1808,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-27T09:16:29.859Z",
+    "instagram_media_id": "18613348549064060",
+    "verified_at": "2026-10-27T09:16:30.193Z",
+    "facebook_post_id": "1392360773951187_122125195587481248",
+    "instagram_permalink": "https://www.instagram.com/p/De_gzmkG9SL/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122125195239481248",
+      "122125195293481248",
+      "122125195347481248",
+      "122125195407481248",
+      "122125195461481248",
+      "122125195527481248"
+    ],
+    "facebook_posted_at": "2026-10-27T09:16:44.604Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122125195587481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-28-build-a-small-tool-instead-of-watching-tutorials",
