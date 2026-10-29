@@ -1888,10 +1888,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-29T10:19:32.551Z",
+    "instagram_media_id": "18014689127987855",
+    "verified_at": "2026-10-29T10:19:33.138Z",
+    "facebook_post_id": "1392360773951187_122125902843481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfExnb-myHm/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122125902525481248",
+      "122125902579481248",
+      "122125902645481248",
+      "122125902693481248",
+      "122125902759481248",
+      "122125902807481248"
+    ],
+    "facebook_posted_at": "2026-10-29T10:19:49.623Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122125902843481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-30-handle-client-revisions-clearly",
