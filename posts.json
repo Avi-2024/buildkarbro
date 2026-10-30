@@ -1928,10 +1928,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-30T10:21:14.916Z",
+    "instagram_media_id": "17906259537600923",
+    "verified_at": "2026-10-30T10:21:15.390Z",
+    "facebook_post_id": "1392360773951187_122126181627481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfHWmshGxiC/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122126181333481248",
+      "122126181387481248",
+      "122126181435481248",
+      "122126181483481248",
+      "122126181525481248",
+      "122126181579481248"
+    ],
+    "facebook_posted_at": "2026-10-30T10:21:28.955Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122126181627481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-10-31-write-a-useful-portfolio-case-study",
