@@ -1968,10 +1968,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-10-31T09:53:58.791Z",
+    "instagram_media_id": "17911526070664821",
+    "verified_at": "2026-10-31T09:53:59.108Z",
+    "facebook_post_id": "1392360773951187_122126508393481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfJ4R6am3AG/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122126508093481248",
+      "122126508147481248",
+      "122126508195481248",
+      "122126508249481248",
+      "122126508303481248",
+      "122126508357481248"
+    ],
+    "facebook_posted_at": "2026-10-31T09:54:11.505Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122126508393481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-11-01-build-a-simple-freelance-lead-tracker",
