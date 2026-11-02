@@ -2048,10 +2048,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-11-02T11:34:05.047Z",
+    "instagram_media_id": "17956564539037497",
+    "verified_at": "2026-11-02T11:34:05.495Z",
+    "facebook_post_id": "1392360773951187_122127103287481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfPNUpbFlyq/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122127102993481248",
+      "122127103041481248",
+      "122127103095481248",
+      "122127103143481248",
+      "122127103203481248",
+      "122127103251481248"
+    ],
+    "facebook_posted_at": "2026-11-02T11:34:16.444Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122127103287481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-11-03-reuse-one-useful-idea-across-formats",
