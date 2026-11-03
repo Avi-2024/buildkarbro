@@ -2088,10 +2088,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-11-03T11:13:08.129Z",
+    "instagram_media_id": "17951044347342939",
+    "verified_at": "2026-11-03T11:13:08.370Z",
+    "facebook_post_id": "1392360773951187_122127452739481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfRvuPmG7-P/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122127452451481248",
+      "122127452505481248",
+      "122127452553481248",
+      "122127452601481248",
+      "122127452655481248",
+      "122127452703481248"
+    ],
+    "facebook_posted_at": "2026-11-03T11:13:20.843Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122127452739481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-11-04-organise-your-project-files-clearly",
