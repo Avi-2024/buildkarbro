@@ -2128,10 +2128,28 @@
     "manual_approved": true,
     "ai_visual_used": true,
     "asset_source": "generated_from_user_style_reference",
-    "published_at": null,
-    "instagram_media_id": null,
-    "verified_at": null,
-    "facebook_post_id": null
+    "published_at": "2026-11-04T11:23:14.430Z",
+    "instagram_media_id": "18120563542778421",
+    "verified_at": "2026-11-04T11:23:14.746Z",
+    "facebook_post_id": "1392360773951187_122127735003481248",
+    "instagram_permalink": "https://www.instagram.com/p/DfUVrFwG3X3/",
+    "instagram_username": "buildkarbro",
+    "media_type": "CAROUSEL_ALBUM",
+    "media_product_type": "FEED",
+    "facebook_status": "published",
+    "facebook_page_id": "1392360773951187",
+    "facebook_page_name": "Build Kar Bro",
+    "facebook_photo_ids": [
+      "122127734727481248",
+      "122127734775481248",
+      "122127734823481248",
+      "122127734871481248",
+      "122127734919481248",
+      "122127734967481248"
+    ],
+    "facebook_posted_at": "2026-11-04T11:23:30.439Z",
+    "facebook_permalink": "https://www.facebook.com/122095091655481248/posts/122127735003481248",
+    "facebook_token_source": "page_lookup"
   },
   {
     "id": "approved-2026-11-05-run-a-useful-weekly-creator-review",
